@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+<!--🡻🡻🡻Navbar🡻🡻🡻-->
+
+<nav class="navbar" id="navbar">
+  <a href="#top">Home</a>
+  <a href="#feedback-section">Avaliações</a>
+  <a href="#top"><img id="navlogo" src="img/Logo-black.png" alt=""></a>
+  <a href="#portframe">Portfólio</a>
+  <a href="#windowtablayout">Contato</a>
+</nav>
+
+  <!--🡻🡻🡻"hero" is place where the home is located🡻🡻🡻-->
+
+    <div class="hero">
+    <div class="hero-text">
+    <img id="hero-img" src="img/Portfolio-txt.webp" alt="">
+    <p id="hero-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+    <a class="button" href="projetos/index.html">Portfólio</a>
+    </div>
+    </div>
+
+  <!--🡻🡻🡻Banner🡻🡻🡻-->
+
+ <div class="banner1">
+  <div class="layout-elements">
+    <img class="bicon" src="img/time2.png" alt="">
+    <p class="banner-text">Entrega rápida</p>
+  </div>
+
+  <div class="layout-elements">
+    <img class="bicon" src="img/Money.png" alt="">
+    <p class="banner-text">Preço justo</p>
+  </div>
+
+  <div class="layout-elements">
+    <img class="bicon" src="img/Star 1.png" alt="">
+    <p class="banner-text">5 Estrelas</p>
+  </div>
+
+  <div class="layout-elements">
+    <img class="bicon" src="img/Shield.png" alt="">
+    <p class="banner-text">Confiança</p>
+  </div>
+
+  <div class="layout-elements">
+    <img class="bicon" src="img/Time.png" alt="">
+    <p class="banner-text">Atualizações constantes</p>
+  </div>
+</div>
+
+
+<!--🡻🡻🡻second part of the site🡻🡻🡻-->
+
+<section id="feedback-section" class="reveal-right">
+  <div class="feedback-text">
+    <h1 class="hfeedback">Avaliações dos clientes:</h1>
+
+    <p class="pfeedback">
+      O que aqueles que trabalharam comigo tem a dizer sobre o serviço
+    </p>
+
+    <div class="feedbackicon">
+      <img class="icon" src="img/99.png" alt="">
+      <img class="icon" src="img/work.png" alt="">
+      <img class="icon" src="img/up.png" alt="">
+      <img class="icon" src="img/be.png" alt="">
+    </div>
+
+    <a class="buttonfeedback" href="#windowtablayout">Contato</a>
+  </div>
+
+  <div class="feedback-carousel">
+    <div class="carousel-buttons">
+      <button class="carousel-btn up" onclick="moveCarousel(-1)">🡹</button>
+      <p id="bulletpoint">●</p>
+      <button class="carousel-btn down" onclick="moveCarousel(1)">🡻</button>
+    </div>
+
+    <div class="carousel-window">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="carousel-item">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial">
+            "Excelente profissional, muito atencioso, comprometido e ágil. 
+            Toda a comunicação foi muito boa e ele foi super rápido e empenhado para realizar todos os ajustes que pedimos. 
+            A entrega do projeto foi muito rápida e o trabalho ficou excelente. Recomendo a todos."
+          </p>
+          <span class="author">Larissa R.</span>
+        </div>
+
+        <div class="carousel-item">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial">
+            "Profissional perfeito e atencioso! Entrega o que promete e tenta ao máximo te satisfazer."
+          </p>
+          <span class="author">Ana B.</span>
+        </div>
+
+        <div class="carousel-item">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial">
+            "Exelente trabalho, cumpriu com os requisitos que eu pedi e foi atencioso nos detalhes do projeto."
+          </p>
+          <span class="author">Luiz F.</span>
+        </div>
+
+        <div class="carousel-item">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial">
+            "Profissional técnico, organizado e preciso. A modelagem foi entregue conforme briefing, com ajustes rápidos e atenção ao acabamento. Arquivos finais adequados para fabricação. Recomendo."
+          </p>
+          <span class="author">Stephani</span>
+        </div>
+
+        <div class="carousel-item">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial">
+            "Muito bom trabalho, suporte e comunicação."
+          </p>
+          <span class="author">Toinho S.</span>
+        </div>
+
+        <div class="carousel-item">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial">
+            "Excelente profissional, recomendo."
+          </p>
+          <span class="author">Bruno M.</span>
+        </div>
+
+        <div class="carousel-item">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial">"Muito bom"</p>
+          <span class="author">Isabelle A.</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--🡻🡻🡻? parte do site🡻🡻🡻-->
+
+<div id="portframe" class="reveal-right">
+<div>
+  <p class="portfolio-head">Portfólio↘</p>
+</div>
+<div id="gridlayout">
+
+  <img id="ilust1" src="img/Ilust-1.jpg" alt="">
+
+  <div class="column">
+    <div class="text-box text1">
+      <p>Projetos</p>
+    </div>
+
+    <div class="img-box render">
+      <img src="img/Render-1.webp" alt="">
+    </div>
+  </div>
+
+  <div class="column">
+    <a class="text-box text2" id="projetos-acesses" href="projetos/index.html">
+      <p>Venha ver todos os meus projetos:</p>
+      <br>
+      <p id="acesse">Acesse ➜</p>
+    </a>
+
+    <div class="img-box brand">
+      <img src="img/branding-1.png" alt="">
+    </div>
+
+    <div class="text-box2 text3">
+      <p>Ilustrações, 3D e Branding</p>
+    </div>
+  </div>
+
+  <img id="ilust2" src="img/Ilust-2.webp" alt="">
+</div>
+</div>
+
+<!--🡻🡻🡻terceira parte do site🡻🡻🡻-->
+
+<div class="terceira reveal-right">
+  <div class="processot">
+    <div>
+      <h2 class="titulo">
+        Briefing
+        <img class="process-icon" src="img/Briefing icon.png" alt="">
+      </h2>
+      <p class="descrição">
+        Aqui iremos discutir sobre todos os requisitos do projeto e quais objetivos ele deve cumprir.
+        Tudo será documentado para consulta futura. Assim garantimos que o resultado final irá refletir
+        100% do que foi proposto.
+      </p>
+      <hr>
+
+      <h3 class="titulo">
+        Prototipagem
+        <img class="process-icon" src="img/Prototype icon.png" alt="">
+      </h3>
+      <p class="descrição">
+        Irei mandar ideias e versões iniciais do projeto para podermos discutir a melhor alternativa
+        que melhor o representa.
+      </p>
+      <hr>
+
+      <h4 class="titulo">
+        Amostragem
+        <img class="process-icon" src="img/Amostragem icon.png" alt="">
+      </h4>
+      <p class="descrição">
+        Vou mostrar como está ficando o projeto final, assim poderão ser apontados erros, melhorias
+        ou até novas funções.
+      </p>
+    </div>
+  </div>
+
+  <img class="processo-img" src="img/Processo.png" alt="">
+</div>
+
+<!--🡻🡻🡻fourth part of the site🡻🡻🡻-->
+
+  <div class="contact-section">
+  <div>
+    <h5 class="contato-header">Vamos conversar sobre seu projeto.</h5>
+
+    <div class="contato-desc">
+      Envie uma mensagem descrevendo um pouco das suas demandas e vamos ajustar um orçamento que fique bom para você.
+    </div>
+
+    <!-- ICONS BACK -->
+    <div class="contato-buttons">
+      <a class="contactbuttons" href="https://api.whatsapp.com/send/?phone=5541984133481&"><img id="buttonicons" src="img/whats.png" alt="">+55 41 98413-3481</a>
+      <a class="contactbuttons" href="https://www.behance.net/miguelhenrique62"><img id="buttonicons" src="img/Be2.png" alt="">Miguel Cassapula</a>
+    </div>
+    <div class="contato-buttons">
+      <a class="contactbuttons" href="miguelhenriquecmds@gmail.com"><img id="buttonicons" src="img/email.png" alt="">miguelhenriquecmds@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+<div id="windowtablayout">
+  <img id="windowtab" src="img/windowstab.png" alt="">
+
+  <form class="contact-form" onsubmit="sendWhatsApp(event)">
+    <div class="form-grid">
+      <input type="text" id="name" placeholder="Nome completo" required>
+      <input type="email" id="email" placeholder="Email" required>
+
+      <input type="tel" id="phone" placeholder="WhatsApp" required>
+      <select id="project" required>
+        <option value="">Tipo de projeto</option>
+        <option value="Branding">Branding</option>
+        <option value="Web Design">Web Design</option>
+        <option value="UI/UX">UI/UX</option>
+        <option value="Identidade Visual">Identidade Visual</option>
+        <option value="Outro">Outro</option>
+      </select>
+    </div>
+
+    <textarea id="message" placeholder="Descreva seu projeto"rows="5" required></textarea>
+
+    <button type="submit" class="buttonsend">Enviar</button>
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
