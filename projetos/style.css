@@ -1,0 +1,108 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F2F2F2;
+}
+
+.hero {
+    justify-content: left;
+    min-width: 100%;
+    min-height: 100vh;
+    background-image: url("img/Projetos-BG.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#hero-img {
+    max-width: 69%;
+    max-height: 100vh;
+    margin-left: 3rem;
+    padding: 0;
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(10px);
+    animation: dissolveIn 1s ease-out forwards;
+    animation-delay: 0.1s;
+}
+
+.hero-sub {
+  font-family: "lato", sans-serif;
+  font-size: 2.5rem;
+  margin-left: 3rem;
+  width: 75%;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(10px);
+  animation: dissolveIn 1s ease-out forwards;
+  animation-delay: 0.7s;
+}
+
+.sub-highlight {
+  color: #7043bd;
+}
+
+
+.hero-text {
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin-left: 3rem;
+    border-radius: 8px;
+}
+
+.button {
+    color: aliceblue;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 3vw, 1.875rem);
+    display: inline-block;
+    padding: 0.4em 1.3em;
+    border-radius: 999px;
+    background: #481F90;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    margin-left: 3rem;
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(10px);
+    animation: dissolveIn 1s ease-out forwards;
+    animation-delay: 1.3s;
+}
+
+.buttonnoanim {
+    color: aliceblue;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 3vw, 1.875rem);
+    display: flex;
+    padding: 0.4em 1.3em;
+    width: 25%;
+    justify-content: center;
+    border-radius: 999px;
+    background: #481F90;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.button:hover {
+    background: #7043bd;
+    transform: scale(1.01);
+}
+
+@keyframes dissolveIn {
+    to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+    }
+}
