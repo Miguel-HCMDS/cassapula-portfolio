@@ -1014,16 +1014,16 @@ text {
 
   /* Grid layout */
   #gridlayout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "title ilust1"
-      "cta cta"
-      "render brand"
-      "desc ilust2";
-    gap: 1rem;
-    padding: 1.5rem;
-  }
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr; /* ⬅ text smaller, images larger */
+  grid-template-areas:
+    "title ilust1"
+    "cta cta"
+    "render brand"
+    "desc ilust2";
+  gap: 1rem;
+  padding: 1.5rem;
+}
 
   /* Grid areas */
   .portfolio-head { grid-area: title; }
@@ -1058,13 +1058,13 @@ text {
   .text-box2,
   .text2,
   .text3 {
-    width: 100%;
+    width: 81%;
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   /* ===== CTA: PROJETOS ACESSES (TALLER + BIGGER TEXT) ===== */
@@ -1088,25 +1088,30 @@ text {
 #portframe .text2 p,
 #portframe .text3 p,
 #portframe #projetos-acesses p {
-    font-size: 2.2rem;      /* ⬆ slightly bigger text */
+    font-size: 2rem; /* still big, less cramped */      /* ⬆ slightly bigger text */
     line-height: 1.3;
   }
 
   /* ===== IMAGE CONTAINERS (SQUARE, NO DISTORTION) ===== */
-  .img-box.render,
+
   .img-box.brand {
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
   }
 
-  .img-box.render img,
   .img-box.brand img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
+
+    .img-box.render {
+      width: 81%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
 
   /* Ilustrations */
   #ilust1,
