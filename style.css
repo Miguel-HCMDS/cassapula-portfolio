@@ -1058,7 +1058,7 @@ text {
   .text-box2,
   .text2,
   .text3 {
-    width: 81%;
+    width: 78%;
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
@@ -1108,7 +1108,7 @@ text {
   }
 
     .img-box.render {
-      width: 81%;
+      width: 78%;
       aspect-ratio: 1 / 1;
       overflow: hidden;
     }
@@ -1122,6 +1122,7 @@ text {
     min-height: auto;
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   /* ===== SAFE MOBILE IMAGE SWAPS ===== */
