@@ -994,32 +994,16 @@ text {
   width: auto;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  .portfolio-head {
-    font-size: 3.4rem;
-  }
-
-  #gridlayout {
-    gap: 1.5rem;
-  }
-}
-
 /* 📱 MOBILE LAYOUT */
 @media (max-width: 768px) {
-
-  /* disable reveal animation on mobile */
-  #portframe {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 
   #acesse {
     background-color: #481F90;
     color: aliceblue !important;
     border-color: #481F90;
     border-radius: 999px;
+    font-size: 1.1rem;        /* ⬆ bigger button text */
+    padding: 0.6rem 1.4rem;  /* ⬆ taller button */
   }
 
   .portfolio-head {
@@ -1027,6 +1011,7 @@ text {
     padding: 1.5rem 0 1rem 1.5rem;
   }
 
+  /* Grid layout */
   #gridlayout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1039,69 +1024,113 @@ text {
     padding: 1.5rem;
   }
 
-  /* GRID AREAS */
+  /* Grid areas */
   .portfolio-head { grid-area: title; }
-  #ilust1        { grid-area: ilust1; }
+  #ilust1 { grid-area: ilust1; }
   #projetos-acesses { grid-area: cta; }
-  .text3         { grid-area: desc; }
-  #ilust2        { grid-area: ilust2; }
+  .text3 { grid-area: desc; }
+  #ilust2 { grid-area: ilust2; }
   .img-box.render { grid-area: render; }
+  .img-box.brand { grid-area: brand; }
 
-  /* columns no longer needed */
+  /* Columns no longer needed */
   .column {
-    display: contents;
+  display: contents;
+}
+
+/* restore box-model ONLY for CTA */
+#projetos-acesses {
+  display: flex;
+}
+
+  /* ===== RESET HEIGHTS ===== */
+  #ilust1, #ilust2,
+  .img-box.render, .img-box.brand,
+  .text-box, .text-box2, .text2, .text3 {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
   }
 
-  /* TEXT BOXES */
+  /* Text boxes as squares */
   .text-box,
-  .text-box2 {
-    width: 100%;
-  }
-
-  .text2 {
-    height: auto;
-    padding: 1.5rem;
-  }
-
+  .text-box2,
+  .text2,
   .text3 {
-    height: auto;
-    padding: 1.2rem;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 1rem;
   }
 
-  /* IMAGES */
-  #ilust1,
-  #ilust2 {
-    height: auto;
+  /* ===== CTA: PROJETOS ACESSES (TALLER + BIGGER TEXT) ===== */
+  #projetos-acesses {
+  grid-area: cta;
+  width: 100%;
+
+  min-height: 360px;   /* ⬅ NOTICEABLY TALL */
+  padding: 6.5rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  aspect-ratio: unset !important;  /* ⬅ breaks square lock */
+}
+  
+#portframe .text-box p,
+#portframe .text-box2 p,
+#portframe .text2 p,
+#portframe .text3 p,
+#portframe #projetos-acesses p {
+    font-size: 2.2rem;      /* ⬆ slightly bigger text */
+    line-height: 1.3;
+  }
+
+  /* ===== IMAGE CONTAINERS (SQUARE, NO DISTORTION) ===== */
+  .img-box.render,
+  .img-box.brand {
     width: 100%;
-    padding: 0;
-  }
-
-  #ilust1,
-  #ilust2 {
-    width: 150px;
-    height: 150px;
-  }
-
-  .img-box.render {
-    height: auto;
-    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
   }
 
   .img-box.render img,
-  #ilust1,
-  #ilust2,
-  .brand {
-    aspect-ratio: 1 / 1;
+  .img-box.brand img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    display: block;
   }
+
+  /* Ilustrations */
+  #ilust1,
+  #ilust2 {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ===== SAFE MOBILE IMAGE SWAPS ===== */
+  #ilust1 { content: url("img/ilust1-mobile.png"); }
+  #ilust2 { content: url("img/ilust2-mobile.png"); }
+  .img-box.render img { content: url("img/Render-1.webp"); }
+  .img-box.brand img { content: url("img/branding1-mobile.png"); }
+
 }
 
 @media (max-width: 360px) {
 
   .portfolio-head {
     font-size: 2.4rem;
-    padding-left: 1rem;
+    padding: 1rem 0 0.75rem 1rem;
   }
 
   #gridlayout {
@@ -1109,17 +1138,69 @@ text {
     padding: 1rem;
   }
 
-  #ilust1,
-  #ilust2 {
-    width: 120px;
-    height: 120px;
+  /* Text boxes: still square, but tighter */
+  .text-box,
+  .text-box2,
+  .text2,
+  .text3 {
+    padding: 0.75rem;
   }
 
-  .text3 {
-    font-size: 0.95rem;
+  #portframe .text-box p,
+  #portframe .text-box2 p,
+  #portframe .text2 p,
+  #portframe .text3 p {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  /* CTA: reduce height so it doesn’t dominate */
+  #projetos-acesses {
+    min-height: 240px;
+    padding: 3rem 1rem;
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .portfolio-head {
+    font-size: 3.4rem;
+    padding: 2rem 0 1.5rem 2rem;
+  }
+
+  #gridlayout {
+    gap: 1.75rem;
+    padding: 2rem;
+  }
+
+  /* Text boxes: still square, but roomier */
+  .text-box,
+  .text-box2,
+  .text2,
+  .text3 {
+    padding: 1.5rem;
+  }
+
+  #portframe .text-box p,
+  #portframe .text-box2 p,
+  #portframe .text2 p,
+  #portframe .text3 p {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  /* CTA slightly less tall than mobile */
+  #projetos-acesses {
+    min-height: 300px;
+    padding: 4.5rem 2rem;
+  }
+
+  /* Images breathe a bit more */
+  .img-box.render,
+  .img-box.brand {
+    aspect-ratio: 1 / 1;
+  }
+}
 
 /*🡻🡻🡻terceira parte do site🡻🡻🡻*/
 
@@ -1232,12 +1313,12 @@ hr {
   }
 
   .titulo {
-    font-size: 1.9rem;
+    font-size: 2.3rem;
     line-height: 1.2;
   }
 
   .descrição {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 
@@ -1246,14 +1327,15 @@ hr {
     padding-left: 12px;
   }
 
-  .processo-img {
-    width: 100%;
-    max-width: 100%;
-    margin-left: calc(-1 * 1.25rem);
-    margin-right: calc(-1 * 1.25rem);
-    height: auto;
-    display: block;
-  }
+.processo-img {
+  width: calc(100% + 3rem);   /* escape container padding */
+  max-width: none;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+
+  display: block;
+  height: auto;
+}
 
   hr {
     border-top-width: 4px;

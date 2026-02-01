@@ -102,3 +102,9 @@ ${message}`;
 
   window.open(url, "_blank");
 }
+
+// Simple JS swap for mobile
+if (window.innerWidth <= 768) {
+  document.querySelector('#ilust1 img').src = "img/ilust1-mobile.png";
+  document.querySelector('#ilust2 img').src = "img/ilust2-mobile.png";
+}
