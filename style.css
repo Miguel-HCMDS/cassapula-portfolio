@@ -7,6 +7,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #F2F2F2;
+    overflow-x: hidden;
 }
 
 *,
@@ -129,11 +130,11 @@ body{
   box-sizing: border-box; /* ensures width includes padding */
 }
 
-@media (max-width: 768px) and (max-width: 720px) {
+@media (max-width: 768px) {
 
   body {
   overflow-x: hidden;
-  width: 100vw;
+  width: 100%;
   }
 
   .nav-toggle {
@@ -153,7 +154,7 @@ body{
     left: 0;
     width: 100%;
     background: #f2f2f2;
-    max-width: 100vw;     /* <- prevents stretching */
+    max-width: 100%;     /* <- prevents stretching */
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
@@ -195,13 +196,13 @@ body{
 
   /* NAVBAR */
   .nav-container {
-    padding: 0 1rem;  /* consistent padding */
-    width: 100%;      /* natural width, avoids 100vw issues */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1rem; /* consistent padding on all devices <= 1024px */
+    width: 100%;      /* prevent stretching */
   }
-
+  
   .nav-logo {
     height: 25px;     /* smaller logo on tablets/phones */
     width: auto;
@@ -279,7 +280,7 @@ body{
 /*🡻🡻🡻 Hero 🡻🡻🡻*/
 
 .hero {
-  min-height: 100vh; /* remove if you want hero to shrink */
+  min-height: 100svh; /* remove if you want hero to shrink */
   height: auto;      /* shrink to content */
   background-image: url("img/Portfolio-BG.png");
   display: flex;
@@ -370,7 +371,7 @@ body{
   }
 }
 
-@media (max-width: 768px) and (max-width: 720px) {
+@media (max-width: 768px) {
 
   .hero {
     padding: 0 1rem;
@@ -475,7 +476,7 @@ text {
   }
 }
 
-@media (max-width: 768px) and (max-width: 720px) {
+@media (max-width: 768px) {
 
   .banner1 {
     flex-wrap: wrap;
@@ -715,7 +716,7 @@ text {
   }
 }
 
-@media (max-width: 768px) and (max-width: 720px) {
+@media (max-width: 768px) {
 
   /* SECTION STACKS */
   #feedback-section {
@@ -1005,7 +1006,7 @@ text {
 }
 
 /* 📱 MOBILE LAYOUT */
-@media (max-width: 768px) and (max-width: 720px) {
+@media (max-width: 768px) {
 
   /* disable reveal animation on mobile */
   #portframe {
@@ -1216,7 +1217,7 @@ hr {
   }
 }
 
-@media (max-width: 768px) and (max-width: 720px) {
+@media (max-width: 768px) {
 
   .terceira {
     flex-direction: column;
@@ -1246,8 +1247,8 @@ hr {
   }
 
   .processo-img {
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     margin-left: calc(-1 * 1.25rem);
     margin-right: calc(-1 * 1.25rem);
     height: auto;
@@ -1462,7 +1463,7 @@ hr {
   }
 }
 
-@media (max-width: 768px) and (max-width: 720px) {
+@media (max-width: 768px) {
 
   /* SECTION STACKS */
   .contact-section {
@@ -1630,7 +1631,7 @@ hr {
   }
 }
 
-@media (max-width: 768px) and (max-width: 720px) {
+@media (max-width: 768px) {
 
   .footer-row {
     flex-direction: column;
