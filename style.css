@@ -1114,7 +1114,7 @@ text {
     width: auto;
     max-width: 100%;
     height: auto;
-
+    min-height: auto;
     margin: 0;
     padding: 0;
   }
