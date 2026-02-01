@@ -845,11 +845,12 @@ text {
 
 .portfolio-head {
   font-family: "Outfit", sans-serif;
-  font-size: 9vh;
+  font-size: 8vh;
   font-weight: 700;
   width: auto;
   padding-top: 4rem;
-  padding-left: 5rem;
+  padding-bottom: 1rem;
+  padding-left: 2.5rem;
   margin: 0;
 }
 
