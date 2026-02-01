@@ -129,7 +129,7 @@ body{
   box-sizing: border-box; /* ensures width includes padding */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 720px) {
 
   body {
   overflow-x: hidden;
@@ -370,7 +370,7 @@ body{
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 720px) {
 
   .hero {
     padding: 0 1rem;
@@ -475,7 +475,7 @@ text {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 720px) {
 
   .banner1 {
     flex-wrap: wrap;
@@ -715,7 +715,7 @@ text {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 720px) {
 
   /* SECTION STACKS */
   #feedback-section {
@@ -1005,7 +1005,7 @@ text {
 }
 
 /* 📱 MOBILE LAYOUT */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 720px) {
 
   /* disable reveal animation on mobile */
   #portframe {
@@ -1216,7 +1216,7 @@ hr {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 720px) {
 
   .terceira {
     flex-direction: column;
@@ -1462,7 +1462,7 @@ hr {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 720px) {
 
   /* SECTION STACKS */
   .contact-section {
@@ -1630,7 +1630,7 @@ hr {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 720px) {
 
   .footer-row {
     flex-direction: column;
