@@ -1114,14 +1114,14 @@ text {
     width: auto;
     max-width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
+
     margin: 0;
     padding: 0;
   }
 
   /* ===== SAFE MOBILE IMAGE SWAPS ===== */
-  #ilust1 { content: url("img/ilust1-mobile.png"); }
-  #ilust2 { content: url("img/ilust2-mobile.png"); }
+  #ilust1 { content: url("img/Ilust1-mobile.png"); }
+  #ilust2 { content: url("img/Ilust2-mobile.png"); }
   .img-box.render img { content: url("img/Render-1.webp"); }
   .img-box.brand img { content: url("img/branding1-mobile.png"); }
 
