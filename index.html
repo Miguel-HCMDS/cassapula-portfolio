@@ -16,12 +16,31 @@
 
 <!--🡻🡻🡻Navbar🡻🡻🡻-->
 
-<nav class="navbar" id="navbar">
-  <a href="#top">Home</a>
-  <a href="#feedback-section">Avaliações</a>
-  <a href="#top"><img id="navlogo" src="img/Logo-black.png" alt=""></a>
-  <a href="#portframe">Portfólio</a>
-  <a href="#windowtablayout">Contato</a>
+  <nav class="navbar">
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <a href="#hero-img">
+      <img class="nav-logo" src="img/Logo-black.png" alt="">
+    </a>
+
+    <!-- MENU -->
+    <ul class="nav-menu">
+      <li><a href="#hero-img" class="nav-link">Início</a></li>
+      <li><a href="#feedback-section" class="nav-link">Avaliações</a></li>
+      <li><a href="#portframe" class="nav-link">Portfólio</a></li>
+      <li><a href=".processot" class="nav-link">Processo</a></li>
+      <li><a href="#contact" class="nav-link nav-cta">Contato</a></li>
+    </ul>
+
+    <!-- HAMBURGER -->
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
 </nav>
 
   <!--🡻🡻🡻"hero" is place where the home is located🡻🡻🡻-->
@@ -237,7 +256,7 @@
 
 <!--🡻🡻🡻fourth part of the site🡻🡻🡻-->
 
-  <div class="contact-section">
+  <div class="contact-section reveal-right">
   <div>
     <h5 class="contato-header">Vamos conversar sobre seu projeto.</h5>
 
@@ -251,7 +270,7 @@
       <a class="contactbuttons" href="https://www.behance.net/miguelhenrique62"><img id="buttonicons" src="img/Be2.png" alt="">Miguel Cassapula</a>
     </div>
     <div class="contato-buttons">
-      <a class="contactbuttons" href="miguelhenriquecmds@gmail.com"><img id="buttonicons" src="img/email.png" alt="">miguelhenriquecmds@gmail.com</a>
+      <a class="contactbuttons" href="mailto:miguelhenriquecmds@gmail.com"><img id="buttonicons" src="img/email.png" alt="">miguelhenriquecmds@gmail.com</a>
     </div>
   </div>
 
@@ -279,6 +298,40 @@
 
     <button type="submit" class="buttonsend">Enviar</button>
   </form>
+</div>
+</div>
+
+<!--🡻🡻🡻Footer oxente🡻🡻🡻-->
+
+<div class="footer-row">
+
+  <video loop autoplay muted class="carinha">
+        <source src="img/Cara branco webm.webm" type="video/webm">
+  </video>
+
+
+<div class="footer-colum">
+  <p class="footer-head">Links</p>
+  <a class="footer-link" href="#hero-img">Inicio</a>
+  <a class="footer-link" href="html.banner1">Avaliações</a>
+  <a class="footer-link" href="#portframe">Portfólio</a>
+  <a class="footer-link" href="projetos/index.html">Projetos</a>
+  <a class="footer-link" href=".processot">Processo</a>
+</div>
+
+<div class="footer-colum">
+  <p class="footer-head">Contato</p>
+  <a class="footer-link" href="https://api.whatsapp.com/send/?phone=5541984133481&">+55 41 98413-3481 / +55 41 8413-3481</a>
+  <a class="footer-link" href="mailto:miguelhenriquecmds@gmail.com">miguelhenriquecmds@gmail.com</a>
+  <a class="footer-link" href="https://www.behance.net/miguelhenrique62">Miguel Cassapula</a>
+<div class="footericon">
+      <img class="ficon" src="img/99.png" alt="">
+      <img class="ficon" src="img/work.png" alt="">
+      <img class="ficon" src="img/up.png" alt="">
+      <img class="ficon" src="img/be.png" alt="">
+  </div>
+</div>
+
 </div>
 
 <script src="script.js"></script>

@@ -18,25 +18,44 @@ function moveCarousel(direction) {
 
 /*🡻🡻🡻Navbar logic🡻🡻🡻*/
 
-const navbar = document.getElementById('navbar');
-const hero = document.querySelector('.hero');
+const navbar = document.querySelector(".navbar");
+const hero = document.querySelector(".hero");
 
-if (navbar && hero && window.innerWidth > 768) {
-  const navObserver = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) {
-        navbar.classList.add('is-visible');
-      } else {
-        navbar.classList.remove('is-visible');
-      }
-    },
-    {
-      rootMargin: "-80px 0px 0px 0px"
-    }
-  );
+function handleNavbarScroll() {
+  const isMobile = window.innerWidth <= 768; // mobile breakpoint
 
-  navObserver.observe(hero);
+  if (isMobile) {
+    navbar.style.transform = "translateY(0)";
+    navbar.style.opacity = "1";
+    return;
+  }
+
+  const heroBottom = hero.getBoundingClientRect().bottom;
+
+  if (heroBottom <= 0) {
+    navbar.style.transform = "translateY(0)";
+    navbar.style.opacity = "1";
+  } else {
+    navbar.style.transform = "translateY(-100%)";
+    navbar.style.opacity = "0";
+  }
 }
+
+// Attach event listeners
+window.addEventListener("scroll", handleNavbarScroll);
+window.addEventListener("resize", handleNavbarScroll);
+
+// Run once on page load
+handleNavbarScroll();
+
+/*Mobile menu logic*/
+
+const toggle = document.getElementById("nav-toggle");
+  const menu = document.querySelector(".nav-menu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
 
 /*🡻🡻🡻slide animation🡻🡻🡻*/
 
