@@ -107,6 +107,57 @@ function attachModalScrollHint(modalImages) {
 }
 
 /* =======================
+   MEDIA FACTORY (FIXED)
+   ======================= */
+function createMediaElement(url, className) {
+  url = url.trim();
+
+  if (url.includes("youtube.com") || url.includes("youtu.be")) {
+
+    let videoId = null;
+
+    try {
+      const parsed = new URL(url);
+
+      /* youtu.be short links */
+      if (parsed.hostname.includes("youtu.be")) {
+        videoId = parsed.pathname.replace("/", "");
+      }
+
+      /* youtube.com links */
+      if (parsed.searchParams.get("v")) {
+        videoId = parsed.searchParams.get("v");
+      }
+
+    } catch (err) {
+      console.warn("Invalid YouTube URL:", url);
+    }
+
+    if (!videoId) {
+      console.warn("Could not extract video ID:", url);
+      return document.createElement("div");
+    }
+
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    iframe.className = className;
+
+    return iframe;
+  }
+
+  /* Normal video */
+  const video = document.createElement("video");
+  video.src = url;
+  video.controls = true;
+  video.className = className;
+
+  return video;
+}
+
+/* =======================
    MODAL
    ======================= */
 const modal = document.getElementById("projectModal");
@@ -147,14 +198,13 @@ document.addEventListener("click", e => {
 
   const projectLink = card.dataset.link || "#";
 
-  /* RESET MODAL */
   modal.classList.remove(
     "single-image",
     "single-carousel",
     "multiple-images"
   );
-  modal.classList.add("active");
 
+  modal.classList.add("active");
   modalImages.innerHTML = "";
   modalTitle.textContent = card.dataset.title || "";
 
@@ -179,6 +229,7 @@ document.addEventListener("click", e => {
     tagsContainer.className = "modal-tags";
     modalTitle.after(tagsContainer);
   }
+
   tagsContainer.innerHTML = "";
   tags.forEach(tag => {
     const span = document.createElement("span");
@@ -187,13 +238,13 @@ document.addEventListener("click", e => {
     tagsContainer.appendChild(span);
   });
 
-  /* CAROUSEL RESET */
   prevBtn.style.display = "none";
   nextBtn.style.display = "none";
   currentIndex = 0;
 
-  /* LAYOUT DECISION */
-  if (layout === "single-carousel" && (images.length + videos.length) > 1) {
+  const totalMedia = images.length + videos.length;
+
+  if (layout === "single-carousel" && totalMedia > 1) {
     modal.classList.add("single-carousel");
     prevBtn.style.display = "flex";
     nextBtn.style.display = "flex";
@@ -209,15 +260,15 @@ document.addEventListener("click", e => {
     });
 
     videos.forEach(src => {
-      const video = document.createElement("video");
-      video.src = src;
-      video.controls = true;
-      video.className = `carousel-image modal-video${index === 0 ? " active" : ""}`;
-      modalImages.appendChild(video);
+      const el = createMediaElement(
+        src,
+        `carousel-image modal-video${index === 0 ? " active" : ""}`
+      );
+      modalImages.appendChild(el);
       index++;
     });
 
-  } else if ((images.length + videos.length) > 1) {
+  } else if (totalMedia > 1) {
     modal.classList.add("multiple-images");
 
     images.forEach(src => {
@@ -228,11 +279,8 @@ document.addEventListener("click", e => {
     });
 
     videos.forEach(src => {
-      const video = document.createElement("video");
-      video.src = src;
-      video.controls = true;
-      video.className = "modal-video";
-      modalImages.appendChild(video);
+      const el = createMediaElement(src, "modal-video");
+      modalImages.appendChild(el);
     });
 
     attachModalScrollHint(modalImages);
@@ -246,11 +294,8 @@ document.addEventListener("click", e => {
       img.className = "modal-img";
       modalImages.appendChild(img);
     } else if (videos.length) {
-      const video = document.createElement("video");
-      video.src = videos[0];
-      video.controls = true;
-      video.className = "modal-video";
-      modalImages.appendChild(video);
+      const el = createMediaElement(videos[0], "modal-video");
+      modalImages.appendChild(el);
     }
   }
 });
@@ -273,7 +318,7 @@ modal.addEventListener("click", e => {
 /* FULLSCREEN IMAGE */
 imageModal.onclick = () => imageModal.classList.remove("active");
 
-/* CAROUSEL CONTROLS */
+/* CAROUSEL */
 prevBtn.onclick = () => {
   const slides = modalImages.querySelectorAll(".carousel-image");
   if (!slides.length) return;
