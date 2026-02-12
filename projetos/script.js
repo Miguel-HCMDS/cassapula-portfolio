@@ -27,8 +27,8 @@ document.querySelectorAll(".projects").forEach(section => {
       items.length > INITIAL_VISIBLE ? "flex" : "none";
 
     showMoreText.textContent = expanded
-      ? "Mostrar menos 🡹"
-      : "Mostrar mais 🡻";
+      ? "Mostrar menos ▲"
+      : "Mostrar mais ▼";
   }
 
   showMoreBtn.addEventListener("click", () => {
