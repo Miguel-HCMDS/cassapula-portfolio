@@ -131,21 +131,27 @@ body{
 
   #hero-img {
     display: block;           /* safety */
-    max-width: 90%;
+    max-width: 85%;
     margin: 0 auto;           /* real centering */
     margin-bottom: 1.4rem;
   }
 
   .hero-sub {
     font-size: 1.5rem !important;
-    width: 100%;
+    width: 90%;
     margin: 1rem 0;
     text-align: center;
   }
 
   .hero .button {
+    font-size: 1.5rem;
     margin-top: 1.4rem;
     margin-left: 0; 
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
   }
 }
 
@@ -464,18 +470,21 @@ h3 {
 .modal.multiple-images .close-modal {
   color: #121212;
   font-size: 2rem;
+  background-color: #e2fffb54;
 }
 
 .modal.single-image .close-modal {
   color: #1c1c1c;
   border-radius: 999px;
   font-size: 2rem;
+  background-color: #e2fffb54;
 }
 
 .modal.single-carousel .close-modal {
   color: #171717;
   border-radius: 999px;
   font-size: 2rem;
+  background-color: #e2fffb54;
 }
 
 /* =======================
@@ -519,6 +528,11 @@ h3 {
   border: none;
   display: block;
   background: #000;
+}
+
+.modal.single-image .modal-video .close-modal {
+  color: #000;
+  background-color: #e2fffb54;
 }
 
 /* Prevent giant empty text column */
@@ -639,16 +653,69 @@ h3 {
   align-items: center;
   justify-content: center;
   z-index: 2000;
+
+  /* 🔥 ADD THIS */
+  position: fixed;
 }
 
 .image-modal.active {
   display: flex;
 }
 
+/* 🔥 CRITICAL FIX */
+.image-modal-content {
+  position: relative;
+  display: inline-block;
+}
+
+.image-modal-content img {
+  display: block;
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+}
+
+.image-watermark {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+
+  transform: translate(-50%, -50%);  /* 🔥 THIS is the key */
+
+  pointer-events: none;
+}
+
 .image-modal img {
   max-width: 95vw;
   max-height: 95vh;
   object-fit: contain;
+}
+
+.image-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  translate: translateX(-1px);
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  width: 62px;
+  height: 62px;
+  border-radius: 999px;
+  border: none;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #121212;
+  font-size: 2rem;
+  background-color: #f1fffd84;
+
+  cursor: pointer;
+  z-index: 50;
 }
 
 /* =======================
@@ -689,6 +756,7 @@ h3 {
    ======================= */
 .results {
   display: none;
+  padding-bottom: 3.5rem;
 }
 
 .results.active {

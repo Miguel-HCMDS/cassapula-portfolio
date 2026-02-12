@@ -1028,37 +1028,6 @@
 </div>
   <!-- /PROJECT ITEM -->
 
-  <!-- PROJECT ITEM -->
-  <!--Tag data-->
-  <div class="project-item" data-tags="3D,Blender">
-
-  <!-- TAGS ABOVE card -->
-  <div class="project-tags">
-    <span class="tag">3D</span>
-    <span class="tag">Blender</span>
-  </div>
-
-  <!-- Modal Data -->
-  <article class="project-card"
-    data-link="https://miguel-cassapula.vercel.app"
-
-    data-title="Crânio"
-
-    data-description="Feita na aula de ilustração do bacharelado em design da UTFPR"
-
-    data-videos="https://www.youtube.com/watch?v=9Yo0DkYr-Xo,https://www.youtube.com/watch?v=O8OOjZXHZ70,https://www.youtube.com/watch?v=i6JSGwa_K74"
-    data-images="img/3D/cave.webp">
-
-    <img src="img/3D/cave.webp" class="card-img">
-
-    <!-- GRADIENT -->
-    <div class="card-gradient"></div>
-
-  <!-- TITLE OVER card -->
-  <div class="card-overlay">
-  <h3>Crânio</h3>
-  </div>
-
   </article>
 
 </div>
@@ -1101,20 +1070,20 @@
   <article class="project-card"
     data-link="https://miguel-cassapula.vercel.app"
 
-    data-title="Cavalo animação"
+    data-title="Design de panfleto"
 
-    data-description="Cavalooooo"
+    data-description="Anuncio sobre meus serviços."
 
-    data-videos="img/3D/horsy4.mp4">
+    data-images="img/publi/ad.webp">
 
-    <img src="img/3D/horsy.webp" class="card-img">
+    <img src="img/publi/adcover.jpeg" class="card-img">
 
     <!-- GRADIENT -->
     <div class="card-gradient"></div>
 
   <!-- TITLE OVER card -->
   <div class="card-overlay">
-  <h3>Cavalo animações</h3>
+  <h3>Design de panfleto</h3>
   </div>
 
   </article>
@@ -1136,12 +1105,11 @@
 
     data-title="Animação carro"
 
-    data-description="Vrum Vrum."
+    data-description="Banners feitos para loja Hollywear, que vende sapatos esportivos e casuais."
 
-    data-videos="img/3D/car1.mp4"
-    data-images="img/3D/car.webp">
+    data-images="img/publi/banner1.webp,img/publi/banner2.webp,img/publi/banner3.webp,img/publi/banner4.webp">
 
-    <img src="img/3D/car.webp" class="card-img">
+    <img src="img/publi/banner1.webp" class="card-img">
 
     <!-- GRADIENT -->
     <div class="card-gradient"></div>
@@ -1170,20 +1138,55 @@
   <article class="project-card"
     data-link="https://miguel-cassapula.vercel.app"
 
-    data-title="Crânio"
+    data-title="Posts redes sociais"
 
-    data-description="Feita na aula de ilustração do bacharelado em design da UTFPR"
+    data-description="Posts feitos para o instagram da +Tech software House."
 
-    data-images="img/3D/cave.webp">
+    data-images="img/publi/post1.webp,img/publi/post2.webp,img/publi/post3.webp,img/publi/post1.webp,img/publi/post4.webp">
 
-    <img src="img/3D/cave.webp" class="card-img">
+    <img src="img/publi/post2.webp" class="card-img">
 
     <!-- GRADIENT -->
     <div class="card-gradient"></div>
 
   <!-- TITLE OVER card -->
   <div class="card-overlay">
-  <h3>Crânio</h3>
+  <h3>Posts redes sociais</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+    <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://miguel-cassapula.vercel.app"
+
+    data-title="Thumbnails"
+
+    data-description="Thumbs feitas para o canal Filosofa-aí no youtube."
+
+    data-images="img/publi/thumb1.webp,img/publi/thumb2.webp,img/publi/thumb3.webp,img/publi/thumb1.webp,img/publi/thumb4.webp">
+
+    <img src="img/publi/thumb1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Thumbnails</h3>
   </div>
 
   </article>
@@ -1193,7 +1196,7 @@
 
   <!-- duplicate project-item blocks as needed -->
 
-      </div>
+  </div>
 
   <!-- SHOW MORE -->
       <button class="show-more" class="showMore">
@@ -1238,8 +1241,13 @@
 <!-- ===================== -->
 <!-- IMAGE FULLSCREEN MODAL -->
 <!-- ===================== -->
-<div class="image-modal" id="imageModal">
-  <img id="imageModalImg" alt="">
+<div id="imageModal" class="image-modal">
+  <button class="image-modal-close">✕</button>
+
+  <div class="image-modal-content">
+      <img id="imageModalImg">
+      <img class="image-watermark" src="img/Water.png">
+  </div>
 </div>
 
 <!--🡻🡻🡻Footer oxente🡻🡻🡻-->
@@ -1247,7 +1255,7 @@
 <div class="footer-row">
 
   <video loop autoplay muted class="carinha">
-        <source src="img/cbw.webm" type="video/webm">
+        <source draggable="false" src="../img/Cara branco webm.webm" type="video/webm">
   </video>
 
 
@@ -1266,15 +1274,18 @@
   <a class="footer-link" href="mailto:miguelhenriquecmds@gmail.com">miguelhenriquecmds@gmail.com</a>
   <a class="footer-link" href="https://www.behance.net/miguelhenrique62">Miguel Cassapula</a>
 <div class="footericon">
-      <img class="ficon" src="img/99.webp" alt="">
-      <img class="ficon" src="img/work.webp" alt="">
-      <img class="ficon" src="img/up.webp" alt="">
-      <img class="ficon" src="img/be.webp" alt="">
+      <a href="https://www.99freelas.com.br/user/MiguelHenriqueCass"><img draggable="false" class="ficon" src="../img/99.webp" alt=""></a>
+      <img draggable="false" class="ficon" src="../img/work.webp" alt="">
+      <img draggable="false" class="ficon" src="../img/up.webp" alt="">
+      <a href="https://www.behance.net/miguelhenrique62"><img draggable="false" class="ficon" src="../img/be.webp" alt=""></a>
   </div>
 </div>
 
 </div>
 
+<script>
+
+</script>
 <script src="script.js"></script>
 
 

@@ -26,9 +26,11 @@ document.querySelectorAll(".projects").forEach(section => {
     showMoreBtn.style.display =
       items.length > INITIAL_VISIBLE ? "flex" : "none";
 
-    showMoreText.textContent = expanded
-      ? "Mostrar menos ▲"
-      : "Mostrar mais ▼";
+    if (showMoreText) {
+      showMoreText.textContent = expanded
+        ? "Mostrar menos ▲"
+        : "Mostrar mais ▼";
+    }
   }
 
   showMoreBtn.addEventListener("click", () => {
@@ -47,6 +49,8 @@ const allProjectItems = Array.from(
 );
 
 function applyFilters() {
+  if (!searchInput || !tagSelect) return;
+
   const query = searchInput.value.toLowerCase();
   const selectedTag = tagSelect.value;
 
@@ -54,8 +58,12 @@ function applyFilters() {
 
   const matches = allProjectItems.filter(item => {
     const card = item.querySelector(".project-card");
-    const title = card.dataset.title.toLowerCase();
-    const tags = item.dataset.tags.split(",").map(t => t.trim());
+    if (!card) return false;
+
+    const title = (card.dataset.title || "").toLowerCase();
+    const tags = (item.dataset.tags || "")
+      .split(",")
+      .map(t => t.trim());
 
     return (
       title.includes(query) &&
@@ -84,8 +92,8 @@ function applyFilters() {
   }
 }
 
-searchInput.addEventListener("input", applyFilters);
-tagSelect.addEventListener("change", applyFilters);
+if (searchInput) searchInput.addEventListener("input", applyFilters);
+if (tagSelect) tagSelect.addEventListener("change", applyFilters);
 
 /* =======================
    MODAL SCROLL HINT
@@ -107,7 +115,7 @@ function attachModalScrollHint(modalImages) {
 }
 
 /* =======================
-   MEDIA FACTORY (FIXED)
+   MEDIA FACTORY
    ======================= */
 function createMediaElement(url, className) {
   url = url.trim();
@@ -119,12 +127,10 @@ function createMediaElement(url, className) {
     try {
       const parsed = new URL(url);
 
-      /* youtu.be short links */
       if (parsed.hostname.includes("youtu.be")) {
         videoId = parsed.pathname.replace("/", "");
       }
 
-      /* youtube.com links */
       if (parsed.searchParams.get("v")) {
         videoId = parsed.searchParams.get("v");
       }
@@ -143,12 +149,12 @@ function createMediaElement(url, className) {
     iframe.allow =
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
+    img.draggable = false;
     iframe.className = className;
 
     return iframe;
   }
 
-  /* Normal video */
   const video = document.createElement("video");
   video.src = url;
   video.controls = true;
@@ -169,6 +175,7 @@ const closeModal = modal.querySelector(".close-modal");
 
 const imageModal = document.getElementById("imageModal");
 const imageModalImg = document.getElementById("imageModalImg");
+const imageModalClose = document.querySelector(".image-modal-close");
 
 const prevBtn = modal.querySelector(".carousel-btn.prev");
 const nextBtn = modal.querySelector(".carousel-btn.next");
@@ -192,7 +199,7 @@ document.addEventListener("click", e => {
     .map(s => s.trim())
     .filter(Boolean);
 
-  const tags = projectItem.dataset.tags
+  const tags = (projectItem.dataset.tags || "")
     .split(",")
     .map(t => t.trim());
 
@@ -222,22 +229,6 @@ document.addEventListener("click", e => {
 
   modal.querySelector(".ver-projeto").href = projectLink;
 
-  /* TAGS */
-  let tagsContainer = modalRight.querySelector(".modal-tags");
-  if (!tagsContainer) {
-    tagsContainer = document.createElement("div");
-    tagsContainer.className = "modal-tags";
-    modalTitle.after(tagsContainer);
-  }
-
-  tagsContainer.innerHTML = "";
-  tags.forEach(tag => {
-    const span = document.createElement("span");
-    span.className = "tag";
-    span.textContent = tag;
-    tagsContainer.appendChild(span);
-  });
-
   prevBtn.style.display = "none";
   nextBtn.style.display = "none";
   currentIndex = 0;
@@ -255,6 +246,7 @@ document.addEventListener("click", e => {
       const img = document.createElement("img");
       img.src = src;
       img.className = `carousel-image modal-img${index === 0 ? " active" : ""}`;
+      img.draggable = false;
       modalImages.appendChild(img);
       index++;
     });
@@ -275,6 +267,7 @@ document.addEventListener("click", e => {
       const img = document.createElement("img");
       img.src = src;
       img.className = "modal-img";
+      img.draggable = false;
       modalImages.appendChild(img);
     });
 
@@ -292,6 +285,7 @@ document.addEventListener("click", e => {
       const img = document.createElement("img");
       img.src = images[0];
       img.className = "modal-img";
+      img.draggable = false;
       modalImages.appendChild(img);
     } else if (videos.length) {
       const el = createMediaElement(videos[0], "modal-video");
@@ -300,8 +294,25 @@ document.addEventListener("click", e => {
   }
 });
 
+if (imageModalImg) {
+  imageModalImg.draggable = false;
+
+  imageModalImg.addEventListener("dragstart", e => {
+    e.preventDefault();
+  });
+}
+
 /* CLOSE MODAL */
 closeModal.onclick = () => modal.classList.remove("active");
+
+const fecharBtn = modal.querySelector(".modal-btn.fechar");
+
+if (fecharBtn) {
+  fecharBtn.addEventListener("click", e => {
+    e.stopPropagation();              // prevents accidental modal bubbling
+    modal.classList.remove("active");
+  });
+}
 
 modal.addEventListener("click", e => {
   if (!e.target.closest(".modal-content")) {
@@ -316,7 +327,29 @@ modal.addEventListener("click", e => {
 });
 
 /* FULLSCREEN IMAGE */
-imageModal.onclick = () => imageModal.classList.remove("active");
+if (imageModal) {
+  imageModal.addEventListener("click", () => {
+    imageModal.classList.remove("active");
+    img.draggable = false;
+  });
+}
+
+/* CLOSE BUTTON (fullscreen only) */
+if (imageModalClose) {
+  imageModalClose.addEventListener("click", e => {
+    e.stopPropagation();
+    imageModal.classList.remove("active");
+    img.draggable = false;
+  });
+}
+
+/* ESC KEY SUPPORT */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    modal.classList.remove("active");
+    imageModal.classList.remove("active");
+  }
+});
 
 /* CAROUSEL */
 prevBtn.onclick = () => {
@@ -337,10 +370,5 @@ nextBtn.onclick = () => {
   slides[currentIndex].classList.add("active");
 };
 
-/* FECHAR BUTTON */
-const fecharBtn = modal.querySelector(".modal-btn.fechar");
-if (fecharBtn) {
-  fecharBtn.addEventListener("click", () => {
-    modal.classList.remove("active");
-  });
-}
+/* RIGHT CLICK BLOCK */
+document.addEventListener("contextmenu", e => e.preventDefault());
