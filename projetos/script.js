@@ -4,6 +4,67 @@ const tagSelect = document.getElementById("tagSelect");
 const resultsSection = document.getElementById("resultsSection");
 const resultsGrid = document.getElementById("resultsGrid");
 
+/*🡻🡻🡻Navbar logic🡻🡻🡻*/
+
+const navbar = document.querySelector(".navbar");
+const hero = document.querySelector(".hero");
+
+function handleNavbarScroll() {
+  const isMobile = window.innerWidth <= 768; // mobile breakpoint
+
+  if (isMobile) {
+    navbar.style.transform = "translateY(0)";
+    navbar.style.opacity = "1";
+    return;
+  }
+
+  const heroBottom = hero.getBoundingClientRect().bottom;
+
+  if (heroBottom <= 0) {
+    navbar.style.transform = "translateY(0)";
+    navbar.style.opacity = "1";
+  } else {
+    navbar.style.transform = "translateY(-100%)";
+    navbar.style.opacity = "0";
+  }
+}
+
+// Attach event listeners
+window.addEventListener("scroll", handleNavbarScroll);
+window.addEventListener("resize", handleNavbarScroll);
+
+// Run once on page load
+handleNavbarScroll();
+
+/*Mobile menu logic*/
+
+const toggle = document.getElementById("nav-toggle");
+  const menu = document.querySelector(".nav-menu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+/*🡻🡻🡻slide animation🡻🡻🡻*/
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // run once
+      }
+    });
+  },
+  {
+    threshold: 0.35 // reveal when 25% visible
+  }
+);
+
+document.querySelectorAll('.reveal-right').forEach(el => {
+  observer.observe(el);
+});
+
 /* =======================
    SHOW MORE (PER SECTION)
    ======================= */
