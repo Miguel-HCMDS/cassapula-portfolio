@@ -7,31 +7,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <title>Miguel Cassapula</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="Favicon.png">
+    <title>Projetos</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../Favicon.png">
 </head>
 <body>
 
-<!--🡻🡻🡻Navbar🡻🡻🡻-->
+  <!--🡻🡻🡻Navbar🡻🡻🡻-->
 
   <nav class="navbar">
   <div class="nav-container">
 
     <!-- LOGO -->
     <a href="#hero-img">
-      <img draggable="false" class="nav-logo" src="img/Logo-black.webp">
+      <img draggable="false" class="nav-logo" src="../img/Logo-black.webp" alt="">
     </a>
 
     <!-- MENU -->
     <ul class="nav-menu">
       <li><a href="#hero-img" class="nav-link">Início</a></li>
-      <li><a href="#feedback-section" class="nav-link">Avaliações</a></li>
-      <li><a href="projetos/index.html" class="nav-link">Projetos</a></li>
-      <li><a href="#navprocesso" class="nav-link">Processo</a></li>
-      <li><a href="#navcontato" class="nav-link nav-cta">Contato</a></li>
+      <li><a href="#ilustrações" class="nav-link">Ilustrações</a></li>
+      <li><a href="#Websites" class="nav-link">Websites</a></li>
+      <li><a href="#Logos" class="nav-link">Logotipos</a></li>
+      <li><a href="#3D" class="nav-link">3D</a></li>
+      <li><a href="#animacoes" class="nav-link">Animações</a></li>
+      <li><a href="../index.html#navcontato" class="nav-link nav-cta">Contato</a></li>
     </ul>
 
     <!-- HAMBURGER -->
@@ -44,263 +43,1249 @@
   </div>
 </nav>
 
-  <!--🡻🡻🡻"hero" is place where the home is located🡻🡻🡻-->
-
+    <!--"hero" is place where the home is located-->
     <div class="hero">
     <div class="hero-text">
-    <img draggable="false" id="hero-img" src="img/Portfolio-txt.webp">
-    <p id="hero-sub">Me chamo Miguel Henrique Cassapula e busco criar projetos que reflitam e abracem todas as suas demandas.  Atuo principalmente nas áreas de UI/UX, modelagem 3D e ilustração, buscando sempre atender a todos os seus requisitos.</p>
-    <a class="button" href="projetos/index.html">Projetos</a>
+    <img id="hero-img" src="img/Projetos-txt.webp" alt="">
+    <p id="corre" class="hero-sub">Alguns dos meus <span class="sub-highlight">melhores projetos</span> residem nesta mesma página!</p>
+    <a class="button" href="../index.html">Voltar à home</a>
     </div>
     </div>
 
-  <!--🡻🡻🡻Banner🡻🡻🡻-->
+<!--🡻🡻🡻SEARCH / FILTER UI🡻🡻🡻-->
 
- <div class="banner1">
-  <div class="layout-elements">
-    <img draggable="false"  class="bicon" src="img/time2.webp">
-    <p class="banner-text">Entrega rápida</p>
+<div class="projects-filters">
+    <input type="text" id="projectSearch" placeholder="Pesquisar projetos..."/>
+    
+    <select id="tagSelect">
+      <optgroup label="Mostrar tudo">
+      <option value="all">Todos</option>
+      </optgroup>
+
+      <optgroup label="Ferramenta">
+      <option value="Tradicional">Tradicional</option>
+      <option value="Photoshop">Photoshop</option>
+      <option value="Figma">Figma</option>
+      <option value="Blender">Blender</option>
+      </optgroup>
+
+      <optgroup label="Categorias">
+      <option value="Ilustração">Ilustração</option>
+      <option value="Logotipo">Logotipo</option>
+      <option value="UI/UX">UI/UX</option>
+      <option value="Web">Web</option>
+      <option value="3D">3D</option>
+      <option value="Animação">Animação</option>
+      <option value="Redes Sociais">Redes Sociais</option>
+      <option value="Banners">Banners</option>
+      <option value="Thumbnail">Thumbnail</option>
+      </optgroup>
+    </select>
   </div>
 
-  <div class="layout-elements">
-    <img draggable="false" class="bicon" src="img/Money.webp">
-    <p class="banner-text">Preço justo</p>
-  </div>
+<!--🡻🡻🡻RESULTS SECTION🡻🡻🡻-->
 
-  <div class="layout-elements">
-    <img draggable="false" class="bicon" src="img/Star 1.webp">
-    <p class="banner-text">5 Estrelas</p>
-  </div>
+<section class="results" id="resultsSection">
+  <div class="projects-wrap">
+    <p class="projects-title">Resultados</p>
 
-  <div class="layout-elements">
-    <img draggable="false" class="bicon" src="img/Shield.webp">
-    <p class="banner-text">Confiança</p>
-  </div>
-
-  <div class="layout-elements">
-    <img draggable="false" class="bicon" src="img/Time.webp">
-    <p class="banner-text">Atualizações constantes</p>
-  </div>
-</div>
-
-
-<!--🡻🡻🡻second part of the site🡻🡻🡻-->
-
-<section id="feedback-section" class="reveal-right">
-  <div class="feedback-text">
-    <h1 class="hfeedback">Avaliações dos clientes:</h1>
-
-    <p class="pfeedback">
-      O que aqueles que trabalharam comigo tem a dizer sobre o serviço
-    </p>
-
-    <div class="feedbackicon">
-      <a href="https://www.99freelas.com.br/user/MiguelHenriqueCass"><img draggable="false" class="icon" src="img/99.webp"></a>
-      <a href=""><img draggable="false" class="icon" src="img/work.webp"></a>
-      <a href=""><img draggable="false" class="icon" src="img/up.webp"></a>
-      <a href="https://www.behance.net/miguelhenrique62"><img draggable="false" class="icon" src="img/be.webp"></a>
-    </div>
-
-    <a class="buttonfeedback" href="#windowtablayout">Contato</a>
-  </div>
-
-  <div class="feedback-carousel">
-    <div class="carousel-buttons">
-      <button class="carousel-btn up" onclick="moveCarousel(-1)">▲</button>
-      <p id="bulletpoint">●</p>
-      <button class="carousel-btn down" onclick="moveCarousel(1)">▼</button>
-    </div>
-
-    <div class="carousel-window">
-      <div class="carousel-track" id="carouselTrack">
-
-        <div class="carousel-item">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial">
-            "Excelente profissional, muito atencioso, comprometido e ágil. 
-            Toda a comunicação foi muito boa e ele foi super rápido e empenhado para realizar todos os ajustes que pedimos. 
-            A entrega do projeto foi muito rápida e o trabalho ficou excelente. Recomendo a todos."
-          </p>
-          <span class="author">Larissa R.</span>
-        </div>
-
-        <div class="carousel-item">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial">
-            "Profissional perfeito e atencioso! Entrega o que promete e tenta ao máximo te satisfazer."
-          </p>
-          <span class="author">Ana B.</span>
-        </div>
-
-        <div class="carousel-item">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial">
-            "Exelente trabalho, cumpriu com os requisitos que eu pedi e foi atencioso nos detalhes do projeto."
-          </p>
-          <span class="author">Luiz F.</span>
-        </div>
-
-        <div class="carousel-item">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial">
-            "Profissional técnico, organizado e preciso. A modelagem foi entregue conforme briefing, com ajustes rápidos e atenção ao acabamento. Arquivos finais adequados para fabricação. Recomendo."
-          </p>
-          <span class="author">Stephani</span>
-        </div>
-
-        <div class="carousel-item">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial">
-            "Muito bom trabalho, suporte e comunicação."
-          </p>
-          <span class="author">Toinho S.</span>
-        </div>
-
-        <div class="carousel-item">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial">
-            "Excelente profissional, recomendo."
-          </p>
-          <span class="author">Bruno M.</span>
-        </div>
-
-        <div class="carousel-item">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial">"Muito bom"</p>
-          <span class="author">Isabelle A.</span>
-        </div>
-
+    <div class="run">
+      <div class="projects-grid" id="resultsGrid">
+        <!-- filtered/search results go here -->
       </div>
     </div>
   </div>
 </section>
 
-<!--🡻🡻🡻? parte do site🡻🡻🡻-->
+<!--🡻🡻🡻PROJECTS SECTION🡻🡻🡻-->
 
-<div id="portframe" class="reveal-right">
-<div>
-  <p class="portfolio-head">Portfólio↘</p>
-</div>
-<div id="gridlayout">
+<!--🡻🡻🡻Ilustrações🡻🡻🡻-->
 
-  <img draggable="false"  id="ilust1" src="img/Ilust-1.jpg">
+<section class="projects projectsSection">
+  <div class="projects-wrap">
+    <p id="ilustrações" class="projects-title">Ilustrações</p>
 
-  <div class="column">
-    <div class="text-box text1">
-      <p>Projetos</p>
-    </div>
+    <div class="run">
+      <div class="projects-grid projectsGrid">
 
-    <div class="img-box render">
-      <img draggable="false" src="img/Render-1.webp">
-    </div>
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Ilustração,Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Ilustração</span>
+    <span class="tag">Photoshop</span>
   </div>
 
-  <div class="column">
-    <a class="text-box text2" id="projetos-acesses" href="projetos/index.html">
-      <p>Venha ver todos os meus projetos:</p>
-      <br>
-      <p id="acesse">Acesse ➜</p>
-    </a>
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-layout="single-carousel"
+    data-link="https://www.behance.net/gallery/241615351/Silksong-unofficial-ilustration"
 
-    <div class="img-box brand">
-      <img draggable="false" src="img/branding-1.webp">
-    </div>
+    data-title="Fourth Chorus"
 
-    <div class="text-box2 text3">
-      <p>Ilustrações, 3D e Branding</p>
-    </div>
+    data-description="Comecei a fazer essa obra após concluir minhas aulas de ilustração, 
+    como um jeito de avaliar minhas habilidades comparado a como eu era antes delas. 
+    Uma ilustração não oficial feita no meu tempo livre sobre um assunto relevante."
+
+    data-images="img/Ilustrações/FourthChorus.webp,img/Ilustrações/1.webp,img/Ilustrações/2.webp,
+    img/Ilustrações/3.webp,img/Ilustrações/4.webp,img/Ilustrações/Fourth/4.5.webp,img/Ilustrações/5.webp">
+
+    <img src="img/Ilustrações/FourthChorus.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Fourth Chorus</h3>
   </div>
 
-  <img draggable="false" id="ilust2" src="img/Ilust-2.webp">
+  </article>
 </div>
 
-</div>
+<!--🡻🡻🡻Projects🡻🡻🡻-->
 
-<!--🡻🡻🡻terceira parte do site🡻🡻🡻-->
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Ilustração, Photoshop">
 
-<div class="terceira reveal-right">
-  <div id="navprocesso" class="processot">
-    <div>
-      <h2 class="titulo">
-        Briefing
-        <img draggable="false" class="process-icon" src="img/Briefing icon.webp">
-      </h2>
-      <p class="descrição">
-        Aqui iremos discutir sobre todos os requisitos do projeto e quais objetivos ele deve cumprir.
-        Tudo será documentado para consulta futura. Assim garantimos que o resultado final irá refletir
-        100% do que foi proposto.
-      </p>
-      <hr>
-
-      <h3 class="titulo">
-        Prototipagem
-        <img draggable="false" class="process-icon" src="img/Prototype icon.webp">
-      </h3>
-      <p class="descrição">
-        Irei mandar ideias e versões iniciais do projeto para podermos discutir a melhor alternativa
-        que melhor o representa.
-      </p>
-      <hr>
-
-      <h4 class="titulo">
-        Amostragem
-        <img draggable="false" class="process-icon" src="img/Amostragem icon.webp">
-      </h4>
-      <p class="descrição">
-        Vou mostrar como está ficando o projeto final, assim poderão ser apontados erros, melhorias
-        ou até novas funções.
-      </p>
-    </div>
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Ilustração</span>
+    <span class="tag">Photoshop</span>
   </div>
 
-  <img draggable="false" class="processo-img" src="img/Processo.webp">
-</div>
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232211943/Mascot-ilustration"
 
-<!--🡻🡻🡻fourth part of the site🡻🡻🡻-->
+    data-title="Design de mascote"
 
-  <div id="navcontato" class="contact-section reveal-right">
-  <div>
-    <h5 class="contato-header">Vamos conversar sobre seu projeto.</h5>
+    data-description="Guia de estilo de um mascote feito em 2024 para ajudar nas publicidades de uma startup de tecnologia."
 
-    <div class="contato-desc">
-      Envie uma mensagem descrevendo um pouco das suas demandas e vamos ajustar um orçamento que fique bom para você.
-    </div>
+    data-images="img/Ilustrações/Cover.webp,img/Ilustrações/Page1.webp,img/Ilustrações/Page2.webp,
+    img/Ilustrações/Page3.webp,img/Ilustrações/Page4.webp,img/Ilustrações/Page5.webp,img/Ilustrações/Page6.webp,
+    img/Ilustrações/Page7.webp,img/Ilustrações/Page8.webp,img/Ilustrações/Page9.webp,img/Ilustrações/Page10.webp,
+    img/Ilustrações/Page11.webp">
 
-    <!-- ICONS BACK -->
-    <div class="contato-buttons">
-      <a class="contactbuttons" href="https://api.whatsapp.com/send/?phone=5541984133481&"><img id="buttonicons" src="img/whats.webp">+55 41 98413-3481</a>
-      <a class="contactbuttons" href="https://www.behance.net/miguelhenrique62"><img id="buttonicons" src="img/Be2.webp">Miguel Cassapula</a>
-    </div>
-    <div class="contato-buttons">
-      <a class="contactbuttons" href="mailto:miguelhenriquecmds@gmail.com"><img id="buttonicons" src="img/email.webp">miguelhenriquecmds@gmail.com</a>
-    </div>
+    <img src="img/Ilustrações/Cover.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Design de mascote</h3>
   </div>
 
-  <!-- CONTACT FORM -->
-<div id="windowtablayout">
-  <img draggable="false" id="windowtab" src="img/windowstab.webp">
+  </article>
 
-  <form class="contact-form" onsubmit="sendWhatsApp(event)">
-    <div class="form-grid">
-      <input type="text" id="name" placeholder="Nome completo" required>
-      <input type="email" id="email" placeholder="Email" required>
-
-      <input type="tel" id="phone" placeholder="WhatsApp" required>
-      <select id="project" required>
-        <option value="">Tipo de projeto</option>
-        <option value="Branding">Branding</option>
-        <option value="Web Design">Web Design</option>
-        <option value="UI/UX">UI/UX</option>
-        <option value="Identidade Visual">Identidade Visual</option>
-        <option value="Outro">Outro</option>
-      </select>
-    </div>
-
-    <textarea id="message" placeholder="Descreva seu projeto" rows="5" required></textarea>
-
-    <button type="submit" class="buttonsend">Enviar</button>
-  </form>
 </div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Ilustração,Tradicional">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Ilustração</span>
+    <span class="tag">Tradicional</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/242441107/Ilustracao-Gnomo"
+
+    data-title="Ilustração Gnomo"
+
+    data-description="Ilustração sobre um Gnomo inspirado naqueles feitos por Rien Poortvliet. |
+    Desenvolvido na aula de ilustração do bacharelado em design da UTFPR."
+
+    data-images="img/Ilustrações/Gnomo.webp">
+
+    <img src="img/Ilustrações/Gnomo.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Ilustração Gnomo</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Ilustração,Tradicional">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Ilustração</span>
+    <span class="tag">Tradicional</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/242440991/Ilustracao-Lobo-Guara"
+
+    data-title="Ilustração Lobo Guará"
+
+    data-description="Ilustração do lobo mais brasileiro que existe! |
+    Desenvolvido na aula de ilustração do bacharelado em design da UTFPR."
+
+    data-images="img/Ilustrações/guara.webp">
+
+    <img src="img/Ilustrações/guara.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Ilustração Lobo Guará</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Ilustração,Tradicional">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Ilustração</span>
+    <span class="tag">Tradicional</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/242440991/Ilustracao-Lobo-Guara"
+
+    data-title="Ilustração Arara-canindé"
+
+    data-description="Desenvolvido nas aulas de ilustração da UTFPR, a proposta era criar um trabalho com base em um briefing. |
+    A arara-canindé é uma espécie em risco de extinção mas não exatamente quase extinta, essa situação faz com que o pássaro não tenha
+    nenhuma representação ou campanhas que conscientizem o povo sobre esse fato. O trabalho foi feito com intenção de ser utilizado em uma campanha para
+    prevenção da extinção desse belo animal."
+
+    data-images="img/Ilustrações/arara.webp">
+
+    <img src="img/Ilustrações/arara.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Ilustração Arara-canindé</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Ilustração,Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Ilustração</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-layout="single-carousel"
+    data-link="https://www.behance.net/gallery/232211969/Wine-glass-ilustration"
+
+    data-title="Cálice"
+
+    data-description="Estudo sobre vidro."
+    data-images="img/Ilustrações/Chalice.webp">
+
+    <img src="img/Ilustrações/Chalice.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Cálice</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- duplicate project-item blocks as needed -->
+
+      </div>
+
+  <!-- SHOW MORE -->
+      <button class="show-more" class="showMore">
+        <hr>
+        <span class="show-more-text">Mostrar mais ↓</span>
+        <hr>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!--🡻🡻🡻Websites🡻🡻🡻-->
+
+<section class="projects projectsSection">
+  <div class="projects-wrap">
+    <p id="Websites" class="projects-title">Websites</p>
+
+    <div class="run">
+      <div class="projects-grid projectsGrid">
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="UI/UX,Web,Figma">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">UI/UX</span>
+    <span class="tag">Web</span>
+    <span class="tag">Figma</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://creativx-club.vercel.app"
+
+    data-title="Creativx Club"
+
+    data-description="Landing Page da Creatvx Club, empresa de venda de cursos voltados a IA e autoajuda.
+    Meu envolvimento no projeto foi criar a UI com as referências que o cliente proporcionou. |
+    Website profissional de venda de cursos voltados para I.A. e afins, o site é 100% funcional e você pode acessá-lo."
+
+    data-images="img/Websites/Crea1.webp,img/Websites/Crea2.webp,img/Websites/Crea3.webp,img/Websites/Crea4.webp,img/Websites/Crea5.webp,
+    img/Websites/Crea6.webp,img/Websites/Crea7.webp,img/Websites/Crea8.webp,img/Websites/Crea9.webp">
+
+    <img src="img/Websites/Crea1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Creativx Club</h3>
+  </div>
+
+  </article>
+</div>
+
+<!--🡻🡻🡻Projects🡻🡻🡻-->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="UI/UX, Figma">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">UX/UI</span>
+    <span class="tag">Figma</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.figma.com/proto/jutnF2iSskxIvp8HGe87zT/Landing-page-software-house?page-id=335%253A764&node-id=335-787&viewport=-107%252C-597%252C0.51&t=Yo52P4EvmFZQpCxb-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=335%253A787"
+
+    data-title="Landing Page +Tech"
+
+    data-description="Recomendo abrir o protótipo para ver as animações e interações. |
+    Landing page de uma software house que fechou a algum tempo, protótipo totalmente interativo e completo."
+
+    data-images="img/Websites/Tech1.webp,img/Websites/Tech2.webp,img/Websites/Tech3.webp,img/Websites/Tech4.webp,img/Websites/Tech5.webp,
+    img/Websites/Tech6.webp">
+
+    <img src="img/Websites/Tech1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Landing page +Tech</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="App,Figma">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">App</span>
+    <span class="tag">Figma</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.figma.com/proto/3Kq6Khp0vbESn7goTlKE1x/Compatinhas-2.0--sc?node-id=0-1&t=NizEhCqJ4Vv3blyQ-1"
+
+    data-title="Compatinhas"
+
+    data-description="Criado como projeto final do curso de UI/UX da Cubos Academy."
+
+    data-images="img/Websites/comp1.webp,img/Websites/comp2.webp,img/Websites/comp3.webp,img/Websites/comp4.webp,img/Websites/comp5.webp,
+    img/Websites/comp6.webp">
+
+    <img src="img/Websites/Cover.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Compatinhas</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="UI/UX,Figma">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">UI/UX</span>
+    <span class="tag">Figma</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://cleanprime.com.br"
+
+    data-title="Clean Prime"
+
+    data-description="Landing page para empresa de limpeza de estofados, a UI foi feita com base em referências providas pelo cliente."
+    data-images="img/Websites/clea1.webp,img/Websites/clea2.webp,img/Websites/clea3.webp,img/Websites/clea4.webp,img/Websites/clea5.webp,
+    img/Websites/clea6.webp">
+
+    <img src="img/Websites/clea1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Clean Prime</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="UI/UX,Figma">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">UI/UX</span>
+    <span class="tag">Figma</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.figma.com/design/jAOULx7QTtQWn7Uh8q7Mk5/Encontrador-de-quest%25C3%25B5es?node-id=113-765&t=woWbzrcAiLlwLZfP-1"
+
+    data-title="Encontrador de questões"
+
+    data-description="Criado inicialmente como projeto de freelance mas após complicações com os desenvolvedores do projeto, recebeu um rebrand e o design agora reside no meu portfólio."
+    data-images="img/Websites/enco1.webp,img/Websites/enco2.webp,img/Websites/enco3.webp,img/Websites/enco4.webp,img/Websites/enco5.webp,
+    img/Websites/enco6.webp">
+
+    <img src="img/Websites/enco1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Encontrador de questões</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- duplicate project-item blocks as needed -->
+
+      </div>
+
+  <!-- SHOW MORE -->
+      <button class="show-more" class="showMore">
+        <hr>
+        <span class="show-more-text">Mostrar mais ↓</span>
+        <hr>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!--🡻🡻🡻Logotipos🡻🡻🡻-->
+
+<section class="projects projectsSection">
+  <div class="projects-wrap">
+    <p id="Logos" class="projects-title">Logotipos</p>
+
+    <div class="run">
+      <div class="projects-grid projectsGrid">
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Logotipo,Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Logotipo</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232212121/Filosofaai-Logo"
+
+    data-title="Filosofa.ai logo"
+
+    data-description="Logotipo para canal no youtube sobre filosofia."
+
+    data-images="img/Logos/filo1.webp,img/Logos/filo2.webp,img/Logos/filo3.webp">
+
+    <img src="img/Logos/filo1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Filosofa.ai logo</h3>
+  </div>
+
+  </article>
+</div>
+
+<!--🡻🡻🡻Projects🡻🡻🡻-->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Logotipo, Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Logotipo</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232262241/Design-startup-logo"
+
+    data-title="EX-Design"
+
+    data-description="Logo para agência de design."
+
+    data-images="img/Logos/exd.webp">
+
+    <img src="img/Logos/exd.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>EX-Design</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Logotipo,Tradicional">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Logotipo</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232213915/Tech-Startup-Logo"
+
+    data-title="+Tech Logo"
+
+    data-description="Logo de uma software house que lidava com criação de websites, apps, automações, modelos 3D, ilustrações e UI/UX."
+
+    data-images="img/Logos/Tech.webp">
+
+    <img src="img/Logos/Tech.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>+Tech Logo</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Logotipo,Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Logotipo</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232214179/Creativx-Logo"
+
+    data-title="Logo Creativx Club"
+
+    data-description="Logo criada junto com o website da Creativx-Club."
+
+    data-images="img/logos/creat.webp">
+
+    <img src="img/logos/creat.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Logo Creativx Club</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Ilustração,Tradicional">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Ilustração</span>
+    <span class="tag">Tradicional</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232213829/Logo-for-Full-Stack-Dev"
+
+    data-title="Logo desenvolvedor Full-Stack"
+
+    data-description="Logo para o desenvolvedor Vinicius Henrique, desenvolvedor Full-Stack."
+
+    data-images="img/Logos/full.webp">
+
+    <img src="img/Logos/full.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Logo desenvolvedor Full-Stack</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- duplicate project-item blocks as needed -->
+
+      </div>
+
+  <!-- SHOW MORE -->
+      <button class="show-more" class="showMore">
+        <hr>
+        <span class="show-more-text">Mostrar mais ↓</span>
+        <hr>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!--🡻🡻🡻Modelos 3D🡻🡻🡻-->
+
+<section class="projects projectsSection">
+  <div class="projects-wrap">
+    <p id="3D" class="projects-title">Modelos 3D</p>
+
+    <div class="run">
+      <div class="projects-grid projectsGrid">
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232211083/3D-Flowers"
+
+    data-title="Flores"
+
+    data-description="Render de flores feita no Blender 4.3 usando Cycles."
+
+    data-images="img/3D/Flores.webp">
+
+    <img src="img/3D/Flores.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Flores</h3>
+  </div>
+
+  </article>
+</div>
+
+<!--🡻🡻🡻Projects🡻🡻🡻-->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232211829/Cup-Apples-Render"
+
+    data-title="Mesa de cozinha"
+
+    data-description="Render de uma mesa com maças e um copo sobre ela, feita no Blender 4.3 usando Cycles."
+
+    data-images="img/3D/copo e maças.webp">
+
+    <img src="img/3D/copo e maças.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Mesa de cozinha</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://miguel-cassapula.vercel.app"
+
+    data-title="Crânio"
+
+    data-description="Render de um crânio, feita no Blender 4.3 usando Cycles."
+
+    data-videos="https://www.youtube.com/watch?v=9Yo0DkYr-Xo,https://www.youtube.com/watch?v=O8OOjZXHZ70,https://www.youtube.com/watch?v=i6JSGwa_K74"
+    data-images="img/3D/cave.webp">
+
+    <img src="img/3D/cave.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Crânio</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Animação</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/241618889/Zombie-horse-case-study"
+
+    data-title="Cavalo Zumbi"
+
+    data-description="Modelo 3D de um cavalo zumbi que fiz para aprender sobre esculpir em 3D, retopologia, controles de rig e normal maps. Ideia original que tive quando quis tentar 'creature design'."
+
+    data-videos="https://www.youtube.com/watch?v=JP9XDWK38UE,https://www.youtube.com/watch?v=1YwfmeDJDXE,https://www.youtube.com/watch?v=O8VxgiDLLTQ,https://www.youtube.com/watch?v=uaWCZ_N5Y-E"
+    data-images="img/3D/horsy.webp">
+
+    <img src="img/3D/horsy.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Cavalo Zumbi</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/242443793/Renderizacao-colar-ARKNUM"
+
+    data-title="Design de Produto, Arknum"
+
+    data-description="Design do colar minimalista da ARKNUM feito por mim em 2026."
+
+    data-images="img/3D/arknum1.webp">
+
+    <img src="img/3D/arknum1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Design de Produto, Arknum</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Animação</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232525689/Animacao-3D-para-TCC"
+
+    data-title="Animação Carro"
+
+    data-description="Criado para acompanhar meu TCC do curso Técnico em desenvolvimento de sistemas, o tema era 'a física por trás dos computadores' e esse carrinho de controle remoto realmente existiu! |
+    Ele era controlado com um arduino e um módulo wi-fi/bluetooth."
+
+    data-videos="https://www.youtube.com/watch?v=G82qaF5Fhvc"
+    data-images="img/3D/car.webp">
+
+    <img src="img/3D/car.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Animação Carro</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- duplicate project-item blocks as needed -->
+
+      </div>
+
+  <!-- SHOW MORE -->
+      <button class="show-more" class="showMore">
+        <hr>
+        <span class="show-more-text">Mostrar mais ↓</span>
+        <hr>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!--🡻🡻🡻Animações🡻🡻🡻-->
+
+<section class="projects projectsSection">
+  <div class="projects-wrap">
+    <p id="animacoes" class="projects-title">Animações</p>
+
+    <div class="run">
+      <div class="projects-grid projectsGrid">
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Animação,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Animação</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/241618889/Zombie-horse-case-study"
+
+    data-title="Cavalo animação"
+
+    data-description="Animações do cavalo zumbi."
+
+    data-videos="https://www.youtube.com/watch?v=JP9XDWK38UE">
+
+    <img src="img/3D/horsy.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Cavalo animações</h3>
+  </div>
+
+  </article>
+</div>
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="3D,Animação,Blender">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">3D</span>
+    <span class="tag">Animação</span>
+    <span class="tag">Blender</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232525689/Animacao-3D-para-TCC"
+
+    data-title="Animação carro"
+
+    data-description="Criado para acompanhar meu TCC do curso Técnico em desenvolvimento de sistemas, o tema era 'a fisíca por trás dos computadores' e esse carrinho de controlle remoto realmente existiu! |
+    Ele era controlado com um arduino e um môdulo wi-fi/bluetooth."
+
+    data-videos="https://www.youtube.com/watch?v=G82qaF5Fhvc">
+
+    <img src="img/3D/car.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Animação carro</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- duplicate project-item blocks as needed -->
+
+      </div>
+
+  <!-- SHOW MORE -->
+      <button class="show-more" class="showMore">
+        <hr>
+        <span class="show-more-text">Mostrar mais ↓</span>
+        <hr>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!--🡻🡻🡻Publicidade🡻🡻🡻-->
+
+<section class="projects projectsSection">
+  <div class="projects-wrap">
+    <p id="publi" class="projects-title">Publicidade</p>
+
+    <div class="run">
+      <div class="projects-grid projectsGrid">
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Redes Sociais,Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Redes Sociais</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232210695/Design-de-poster-para-venda-de-um-servico"
+
+    data-title="Design de panfleto"
+
+    data-description="Anuncio sobre meus serviços."
+
+    data-images="img/publi/ad.webp">
+
+    <img src="img/publi/adcover.jpeg" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Design de panfleto</h3>
+  </div>
+
+  </article>
+</div>
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Banners,Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Banners</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232210831/HOLLYWEAR-banners"
+
+    data-title="Banners hollywear"
+
+    data-description="Banners feitos para loja Hollywear, que vende sapatos esportivos e casuais."
+
+    data-images="img/publi/banner1.webp,img/publi/banner2.webp,img/publi/banner3.webp,img/publi/banner4.webp">
+
+    <img src="img/publi/banner1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Banners hollywear</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Redes Sociais,Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Redes Sociais</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/233365783/Posts-Tech"
+
+    data-title="Posts redes sociais"
+
+    data-description="Posts feitos para o instagram da +Tech software House."
+
+    data-images="img/publi/post1.webp,img/publi/post2.webp,img/publi/post3.webp,img/publi/post1.webp,img/publi/post4.webp">
+
+    <img src="img/publi/post2.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Posts redes sociais</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+    <!-- PROJECT ITEM -->
+  <!--Tag data-->
+  <div class="project-item" data-tags="Thumbnail,Photoshop">
+
+  <!-- TAGS ABOVE card -->
+  <div class="project-tags">
+    <span class="tag">Thumbnail</span>
+    <span class="tag">Photoshop</span>
+  </div>
+
+  <!-- Modal Data -->
+  <article class="project-card"
+    data-link="https://www.behance.net/gallery/232262143/Thumbnails-para-canal-filosofaai"
+
+    data-title="Thumbnails"
+
+    data-description="Thumbs feitas para o canal Filosofa-aí no youtube."
+
+    data-images="img/publi/thumb1.webp,img/publi/thumb2.webp,img/publi/thumb3.webp,img/publi/thumb1.webp,img/publi/thumb4.webp">
+
+    <img src="img/publi/thumb1.webp" class="card-img">
+
+    <!-- GRADIENT -->
+    <div class="card-gradient"></div>
+
+  <!-- TITLE OVER card -->
+  <div class="card-overlay">
+  <h3>Thumbnails</h3>
+  </div>
+
+  </article>
+
+</div>
+  <!-- /PROJECT ITEM -->
+
+  <!-- duplicate project-item blocks as needed -->
+
+  </div>
+
+  <!-- SHOW MORE -->
+      <button class="show-more" class="showMore">
+        <hr>
+        <span class="show-more-text">Mostrar mais ↓</span>
+        <hr>
+      </button>
+    </div>
+  </div>
+</section>
+
+  <!--🡻🡻🡻PROJECT MODAL🡻🡻🡻-->
+
+<div class="modal" id="projectModal">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+
+    
+<div class="modal-images">
+  <div class="modal-scroll-hint">
+  <span>Scroll down</span>
+</div>
+</div>
+    
+<button class="carousel-btn prev">◀</button>
+<button class="carousel-btn next">▶</button>
+
+<div class="modal-right">
+<div class="modal-header">
+<h3></h3>
+<div class="modal-tags"></div>
+</div>
+<p></p>
+<div class="modal-actions">
+  <button class="modal-btn fechar">Fechar</button>
+  <a class="modal-btn ver-projeto" target="_blank">Ver projeto</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ===================== -->
+<!-- IMAGE FULLSCREEN MODAL -->
+<!-- ===================== -->
+<div id="imageModal" class="image-modal">
+  <button class="image-modal-close">✕</button>
+
+  <div class="image-modal-content">
+      <img id="imageModalImg">
+      <img class="image-watermark" src="img/Water.png">
+  </div>
 </div>
 
 <!--🡻🡻🡻Footer oxente🡻🡻🡻-->
@@ -308,17 +1293,17 @@
 <div class="footer-row">
 
   <video loop autoplay muted class="carinha">
-        <source draggable="false" src="img/Cara branco webm.webm" type="video/webm">
+        <source draggable="false" src="../img/Cara branco webm.webm" type="video/webm">
   </video>
 
 
 <div class="footer-colum">
   <p class="footer-head">Links</p>
   <a class="footer-link" href="#hero-img">Inicio</a>
-  <a class="footer-link" href="html.banner1">Avaliações</a>
-  <a class="footer-link" href="#portframe">Portfólio</a>
-  <a class="footer-link" href="projetos/index.html">Projetos</a>
-  <a class="footer-link" href="#navprocesso">Processo</a>
+  <a class="footer-link" href="#ilustrações">Ilustrações</a>
+  <a class="footer-link" href="#Websites">Websites</a>
+  <a class="footer-link" href="#3D">Modelos 3D</a>
+  <a class="footer-link" href="#publi">Publicidade</a>
 </div>
 
 <div class="footer-colum">
@@ -327,15 +1312,20 @@
   <a class="footer-link" href="mailto:miguelhenriquecmds@gmail.com">miguelhenriquecmds@gmail.com</a>
   <a class="footer-link" href="https://www.behance.net/miguelhenrique62">Miguel Cassapula</a>
 <div class="footericon">
-      <a href="https://www.behance.net/miguelhenrique62"><img draggable="false" class="icon" src="img/99.webp"></a>
-      <a href=""><img class="ficon" src="img/work.webp"></a>
-      <a href=""><img class="ficon" src="img/up.webp""></a>
-      <a href="https://www.behance.net/miguelhenrique62"><img class="ficon" src="../img/be.webp"></a>
+      <a href="https://www.99freelas.com.br/user/MiguelHenriqueCass"><img draggable="false" class="ficon" src="../img/99.webp" alt=""></a>
+      <a href=""><img draggable="false" class="ficon" src="../img/work.webp" alt=""></a>
+      <a href=""><img draggable="false" class="ficon" src="../img/up.webp" alt=""></a>
+      <a href="https://www.behance.net/miguelhenrique62"><img draggable="false" class="ficon" src="../img/be.webp" alt=""></a>
   </div>
 </div>
 
 </div>
 
+<script>
+
+</script>
 <script src="script.js"></script>
+
+
 </body>
 </html>
