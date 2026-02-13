@@ -1288,6 +1288,7 @@ text {
 .processo-img {
   width: auto;
   height: 95vh; /* or whatever size you want */
+  padding: 7rem;
   display: block;
   margin-left: auto; /* space between text and image */
   background: linear-gradient(to bottom, rgba(238, 238, 238, 0), rgb(225, 225, 225));
