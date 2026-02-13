@@ -210,7 +210,6 @@ function createMediaElement(url, className) {
     iframe.allow =
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
-    img.draggable = false;
     iframe.className = className;
 
     return iframe;
