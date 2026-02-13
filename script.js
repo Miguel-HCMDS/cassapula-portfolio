@@ -108,3 +108,5 @@ if (window.innerWidth <= 768) {
   document.querySelector('#ilust1 img').src = "img/ilust1-mobile.png";
   document.querySelector('#ilust2 img').src = "img/ilust2-mobile.png";
 }
+
+document.addEventListener("contextmenu", e => e.preventDefault());
