@@ -1040,9 +1040,12 @@ iframe.modal-video,
   display: block;
 }
 
-.modal.multiple-images.single-image .modal-video,
-.modal.multiple-images.single-image iframe.modal-video,
 .modal.multiple-images.single-image .carousel-image.modal-video {
+  height: 40%;
+}
+
+.modal.multiple-images .modal-video,
+.modal.multiple-images iframe.modal-video {
   height: 40%;
 }
 
