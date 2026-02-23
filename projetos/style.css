@@ -1049,6 +1049,11 @@ iframe.modal-video,
   height: 40%;
 }
 
+.modal.single-image .modal-video,
+.modal.single-image iframe.modal-video {
+  height: 100%;
+}
+
 @media (max-width: 480px) {
 
   .show-more {
