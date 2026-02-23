@@ -1047,13 +1047,9 @@ iframe.modal-video,
 }
 
 .modal.multiple-images.single-image .modal-video,
-iframe.modal-video,
-.carousel-image.modal-video {
+.modal.multiple-images.single-image iframe.modal-video,
+.modal.multiple-images.single-image .carousel-image.modal-video {
   height: 40%;
-}
-
-.modal.single-image .modal-video, iframe.modal-video, .carousel-image.modal-video {
-  height: 100%;
 }
 
 @media (max-width: 480px) {
