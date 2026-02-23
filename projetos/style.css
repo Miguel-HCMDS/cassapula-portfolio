@@ -1052,6 +1052,10 @@ iframe.modal-video,
   height: 40%;
 }
 
+.modal.single-image .modal-video, iframe.modal-video, .carousel-image.modal-video {
+  height: 100%;
+}
+
 @media (max-width: 480px) {
 
   .show-more {
