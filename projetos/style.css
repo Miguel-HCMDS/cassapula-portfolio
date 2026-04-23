@@ -1523,6 +1523,212 @@ iframe.modal-video,
   opacity: 0;
 }
 
+/* =======================
+   STUDY MODAL LAYOUT
+   ======================= */
+
+.modal.study-layout .modal-content {
+  display: flex;
+  width: 100%;
+  max-width: 1300px;
+  height: 96vh;
+  border-radius: 100px;
+}
+
+/* make modal body scroll like a page */
+.modal.study-layout .modal-images {
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.modal.study-layout .close-modal {
+  background: #ffffff85;
+  padding: 30px;
+  margin: 20px;
+  margin-top: 0;
+  border-radius: 9999px;
+  font-size: 2.5rem;
+}
+
+/* STUDY MODE BUTTON POSITION */
+.modal.study-layout .modal-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+}
+
+.modal.study-layout .modal-actions {
+  background: aliceblue;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 70px;
+}
+
+.modal.study-layout .modal-actions .modal-btn{
+  font-size: 1.4rem;
+}
+
+/* optional: cleaner buttons on mobile */
+@media (max-width: 768px) {
+  .modal.study-layout .modal-right {
+    bottom: 10px;
+    right: 10px;
+    flex-direction: column;
+    background-color: #7043bd;
+  }
+
+  .modal.study-layout .modal-actions {
+    gap: 20px;
+  }
+
+  .modal.study-layout .modal-actions .modal-btn{
+    font-size: 1rem;
+}
+
+}
+
+/* =======================
+   CONTENT STYLE
+   ======================= */
+
+.study-img {
+  width: auto;
+  height: 80vh;
+  margin: 0;
+}
+
+.study-text {
+  font-family: Lato, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin: 0;
+  width: 100%;
+  padding: 3rem 6rem 2rem 6rem;
+  background-color: aliceblue;
+}
+
+
+/* =======================
+   TABLETS (≤ 1024px)
+   ======================= */
+
+@media (max-width: 1024px) {
+  .modal.study-layout .modal-content {
+    height: auto; /* allow natural height */
+    flex-direction: column;
+  }
+
+  .study-img {
+    width: 100%;
+    height: auto; /* prevent overflow */
+    max-height: 60vh;
+    object-fit: contain;
+  }
+
+  .study-text {
+    font-size: 1.2rem;
+    padding: 30px;
+  }
+
+  .modal.study-layout .close-modal {
+    padding: 20px;
+    font-size: 2rem;
+  }
+
+    .modal.study-layout .modal-actions {
+    gap: 20px;
+  }
+
+  .modal.study-layout .modal-actions .modal-btn{
+    font-size: 1rem;
+  }
+
+}
+
+/* =======================
+   PHONES (≤ 768px)
+   ======================= */
+
+@media (max-width: 768px) {
+  .modal.study-layout .modal-content {
+    max-height: 100%;
+    height: 95%;
+    width: 95%;
+    border-radius: 10px;
+  }
+
+  .modal.study-layout .modal-images {
+    overflow-y: auto;
+  }
+
+  .study-img {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+  }
+
+  .study-text {
+    font-size: 1rem;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .modal.study-layout .close-modal {
+    padding: 15px;
+    margin: 10px;
+    font-size: 1.6rem;
+  }
+
+    .modal.study-layout .modal-actions {
+    gap: 20px;
+  }
+
+  .modal.study-layout .modal-actions .modal-btn{
+    font-size: 1rem;
+  }
+
+}
+
+
+/* =======================
+   SMALL PHONES (≤ 480px)
+   ======================= */
+
+@media (max-width: 480px) {
+  .study-img {
+    max-height: 40vh;
+  }
+
+  .study-text {
+    font-size: 0.95rem;
+    padding: 15px;
+  }
+
+  .modal.study-layout .close-modal {
+    padding: 12px;
+    font-size: 1.3rem;
+  }
+}
+
 /*🡻🡻🡻Footer oxente🡻🡻🡻*/
 
 .footer-row {

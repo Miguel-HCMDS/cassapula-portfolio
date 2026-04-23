@@ -10,7 +10,7 @@ const navbar = document.querySelector(".navbar");
 const hero = document.querySelector(".hero");
 
 function handleNavbarScroll() {
-  const isMobile = window.innerWidth <= 768; // mobile breakpoint
+  const isMobile = window.innerWidth <= 768;
 
   if (isMobile) {
     navbar.style.transform = "translateY(0)";
@@ -29,21 +29,18 @@ function handleNavbarScroll() {
   }
 }
 
-// Attach event listeners
 window.addEventListener("scroll", handleNavbarScroll);
 window.addEventListener("resize", handleNavbarScroll);
-
-// Run once on page load
 handleNavbarScroll();
 
 /*Mobile menu logic*/
 
 const toggle = document.getElementById("nav-toggle");
-  const menu = document.querySelector(".nav-menu");
+const menu = document.querySelector(".nav-menu");
 
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-  });
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
 
 /*🡻🡻🡻slide animation🡻🡻🡻*/
 
@@ -52,13 +49,11 @@ const observer = new IntersectionObserver(
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // run once
+        observer.unobserve(entry.target);
       }
     });
   },
-  {
-    threshold: 0.35 // reveal when 25% visible
-  }
+  { threshold: 0.35 }
 );
 
 document.querySelectorAll('.reveal-right').forEach(el => {
@@ -66,8 +61,9 @@ document.querySelectorAll('.reveal-right').forEach(el => {
 });
 
 /* =======================
-   SHOW MORE (PER SECTION)
+   SHOW MORE
    ======================= */
+
 const INITIAL_VISIBLE = 3;
 
 document.querySelectorAll(".projects").forEach(section => {
@@ -105,6 +101,7 @@ document.querySelectorAll(".projects").forEach(section => {
 /* =======================
    FILTER + SEARCH
    ======================= */
+
 const allProjectItems = Array.from(
   document.querySelectorAll(".project-item")
 );
@@ -159,6 +156,7 @@ if (tagSelect) tagSelect.addEventListener("change", applyFilters);
 /* =======================
    MODAL SCROLL HINT
    ======================= */
+
 function attachModalScrollHint(modalImages) {
   if (!modalImages) return;
 
@@ -178,6 +176,7 @@ function attachModalScrollHint(modalImages) {
 /* =======================
    MEDIA FACTORY
    ======================= */
+
 function createMediaElement(url, className) {
   url = url.trim();
 
@@ -200,15 +199,10 @@ function createMediaElement(url, className) {
       console.warn("Invalid YouTube URL:", url);
     }
 
-    if (!videoId) {
-      console.warn("Could not extract video ID:", url);
-      return document.createElement("div");
-    }
+    if (!videoId) return document.createElement("div");
 
     const iframe = document.createElement("iframe");
     iframe.src = `https://www.youtube.com/embed/${videoId}`;
-    iframe.allow =
-      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     iframe.className = className;
 
@@ -226,6 +220,7 @@ function createMediaElement(url, className) {
 /* =======================
    MODAL
    ======================= */
+
 const modal = document.getElementById("projectModal");
 const modalImages = modal.querySelector(".modal-images");
 const modalRight = modal.querySelector(".modal-right");
@@ -249,30 +244,21 @@ document.addEventListener("click", e => {
   const projectItem = card.closest(".project-item");
   const layout = card.dataset.layout || "single";
 
-  const images = (card.dataset.images || "")
-    .split(",")
-    .map(s => s.trim())
-    .filter(Boolean);
-
-  const videos = (card.dataset.videos || "")
-    .split(",")
-    .map(s => s.trim())
-    .filter(Boolean);
-
-  const tags = (projectItem.dataset.tags || "")
-    .split(",")
-    .map(t => t.trim());
+  const images = (card.dataset.images || "").split(",").map(s => s.trim()).filter(Boolean);
+  const videos = (card.dataset.videos || "").split(",").map(s => s.trim()).filter(Boolean);
 
   const projectLink = card.dataset.link || "#";
 
   modal.classList.remove(
     "single-image",
     "single-carousel",
-    "multiple-images"
+    "multiple-images",
+    "study-layout" // ✅ NEW
   );
 
   modal.classList.add("active");
   modalImages.innerHTML = "";
+
   modalTitle.textContent = card.dataset.title || "";
 
   modalDesc.innerHTML = "";
@@ -291,12 +277,62 @@ document.addEventListener("click", e => {
 
   prevBtn.style.display = "none";
   nextBtn.style.display = "none";
+  modalRight.style.display = ""; // reset
   currentIndex = 0;
+
+  /* =======================
+   STUDY MODE 🔥 (FIXED)
+   ======================= */
+if (layout === "study") {
+  modal.classList.add("study-layout");
+  modalRight.style.display = "none";
+
+  const content = (card.dataset.content || "")
+    .split("|")
+    .map(c => c.trim())
+    .filter(Boolean);
+
+  content.forEach(item => {
+    const [type, value] = item.split(":");
+
+    if (type === "img") {
+      const img = document.createElement("img");
+      img.src = value;
+      img.className = "study-img";
+      modalImages.appendChild(img);
+    }
+
+    if (type === "text") {
+      const p = document.createElement("p");
+      p.className = "study-text";
+      p.textContent = value;
+      modalImages.appendChild(p);
+    }
+  });
+
+  const actions = document.createElement("div");
+  actions.className = "modal-actions";
+
+  actions.innerHTML = `
+  <button class="modal-btn fechar">Fechar</button>
+  <a class="modal-btn ver-projeto" href="${projectLink}" target="_blank">Ver projeto</a>
+  `;
+
+  modalImages.appendChild(actions);
+
+  attachModalScrollHint(modalImages);
+  return;
+}
+
+  /* =======================
+     NORMAL MODES
+     ======================= */
 
   const totalMedia = images.length + videos.length;
 
   if (layout === "single-carousel" && totalMedia > 1) {
     modal.classList.add("single-carousel");
+
     prevBtn.style.display = "flex";
     nextBtn.style.display = "flex";
 
@@ -305,8 +341,7 @@ document.addEventListener("click", e => {
     images.forEach(src => {
       const img = document.createElement("img");
       img.src = src;
-      img.className = `carousel-image modal-img${index === 0 ? " active" : ""}`;
-      img.draggable = false;
+      img.className = `carousel-image ${index === 0 ? "active" : ""}`;
       modalImages.appendChild(img);
       index++;
     });
@@ -314,7 +349,7 @@ document.addEventListener("click", e => {
     videos.forEach(src => {
       const el = createMediaElement(
         src,
-        `carousel-image modal-video${index === 0 ? " active" : ""}`
+        `carousel-image ${index === 0 ? "active" : ""}`
       );
       modalImages.appendChild(el);
       index++;
@@ -327,7 +362,6 @@ document.addEventListener("click", e => {
       const img = document.createElement("img");
       img.src = src;
       img.className = "modal-img";
-      img.draggable = false;
       modalImages.appendChild(img);
     });
 
@@ -345,7 +379,6 @@ document.addEventListener("click", e => {
       const img = document.createElement("img");
       img.src = images[0];
       img.className = "modal-img";
-      img.draggable = false;
       modalImages.appendChild(img);
     } else if (videos.length) {
       const el = createMediaElement(videos[0], "modal-video");
@@ -353,6 +386,10 @@ document.addEventListener("click", e => {
     }
   }
 });
+
+/* =======================
+   IMAGE FULLSCREEN
+   ======================= */
 
 if (imageModalImg) {
   imageModalImg.draggable = false;
@@ -362,48 +399,47 @@ if (imageModalImg) {
   });
 }
 
-/* CLOSE MODAL */
-closeModal.onclick = () => modal.classList.remove("active");
-
-const fecharBtn = modal.querySelector(".modal-btn.fechar");
-
-if (fecharBtn) {
-  fecharBtn.addEventListener("click", e => {
-    e.stopPropagation();              // prevents accidental modal bubbling
-    modal.classList.remove("active");
-  });
-}
-
+/* OPEN FULLSCREEN */
 modal.addEventListener("click", e => {
-  if (!e.target.closest(".modal-content")) {
-    modal.classList.remove("active");
-  }
-
   const img = e.target.closest("img");
+
+  // only trigger if clicking inside modal images
   if (img && modalImages.contains(img)) {
     imageModalImg.src = img.src;
     imageModal.classList.add("active");
   }
 });
 
-/* FULLSCREEN IMAGE */
+/* CLOSE (click outside image) */
 if (imageModal) {
   imageModal.addEventListener("click", () => {
     imageModal.classList.remove("active");
-    img.draggable = false;
   });
 }
 
-/* CLOSE BUTTON (fullscreen only) */
+/* CLOSE (button) */
 if (imageModalClose) {
   imageModalClose.addEventListener("click", e => {
     e.stopPropagation();
     imageModal.classList.remove("active");
-    img.draggable = false;
   });
 }
 
-/* ESC KEY SUPPORT */
+/* CLOSE MODAL */
+
+closeModal.onclick = () => modal.classList.remove("active");
+
+const fecharBtn = modal.querySelector(".modal-btn.fechar");
+
+if (fecharBtn) {
+  fecharBtn.addEventListener("click", e => {
+    e.stopPropagation();
+    modal.classList.remove("active");
+  });
+}
+
+/* ESC */
+
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
     modal.classList.remove("active");
@@ -412,6 +448,7 @@ document.addEventListener("keydown", e => {
 });
 
 /* CAROUSEL */
+
 prevBtn.onclick = () => {
   const slides = modalImages.querySelectorAll(".carousel-image");
   if (!slides.length) return;
@@ -431,4 +468,5 @@ nextBtn.onclick = () => {
 };
 
 /* RIGHT CLICK BLOCK */
+
 document.addEventListener("contextmenu", e => e.preventDefault());
