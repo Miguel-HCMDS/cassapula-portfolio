@@ -16,38 +16,6 @@ function moveCarousel(direction) {
   track.style.transform = `translateY(-${index * itemHeight}px)`;
 }
 
-/*🡻🡻🡻Navbar logic🡻🡻🡻*/
-
-const navbar = document.querySelector(".navbar");
-const hero = document.querySelector(".hero");
-
-function handleNavbarScroll() {
-  const isMobile = window.innerWidth <= 768; // mobile breakpoint
-
-  if (isMobile) {
-    navbar.style.transform = "translateY(0)";
-    navbar.style.opacity = "1";
-    return;
-  }
-
-  const heroBottom = hero.getBoundingClientRect().bottom;
-
-  if (heroBottom <= 0) {
-    navbar.style.transform = "translateY(0)";
-    navbar.style.opacity = "1";
-  } else {
-    navbar.style.transform = "translateY(-100%)";
-    navbar.style.opacity = "0";
-  }
-}
-
-// Attach event listeners
-window.addEventListener("scroll", handleNavbarScroll);
-window.addEventListener("resize", handleNavbarScroll);
-
-// Run once on page load
-handleNavbarScroll();
-
 /*Mobile menu logic*/
 
 const toggle = document.getElementById("nav-toggle");

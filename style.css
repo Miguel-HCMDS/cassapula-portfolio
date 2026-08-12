@@ -35,13 +35,14 @@ body{
 /* Navbar base */
 .navbar {
   position: fixed;       /* follow scroll naturally */
-  padding: 10px;
+  padding: 15px;
   top: 0;
   left: 0;
   width: 100%;
-  background: aliceblue;
+  background: rgba(235, 238, 243, 0.293);
+  border-bottom: #0000001b solid 1px;
+  backdrop-filter: blur(0.3rem);
   z-index: 999;
-  border-bottom: 3px solid rgba(0,0,0,0.05);
 
   /* Force smooth GPU compositing */
   transform: translateZ(0);
@@ -66,11 +67,11 @@ body{
 .nav-logo {
   font-family: "Outfit", sans-serif;
   font-weight: 700;
-  font-size: 1.4rem;
+  display: flex;
+  width: auto;
+  height: 2rem;
   text-decoration: none;
   color: #000;
-  width: auto;
-  height: 40px;
 }
 
 /* MENU */
@@ -314,7 +315,7 @@ body{
   padding: 3%;
   width: 100%;
   height: 100%;
-  gap: 10%;
+  gap: 8%;
 }
 
 .hero-text p {
@@ -322,7 +323,7 @@ body{
 }
 
 #hero-img {
-  max-width: 50%;
+  max-width: 48%;
   opacity: 0;
   filter: blur(8px);
   transform: translateY(10px);
@@ -350,7 +351,7 @@ body{
   
   font-family: "Outfit", sans-serif;
   font-weight: 700;
-  font-size: clamp(1.1rem, 3vw, 1.875rem);
+  font-size: 1.5rem;
   display: inline-block;
   padding: 0.4em 1.3em;
   border-radius: 999px;
@@ -701,7 +702,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  padding: 8rem 8rem 0 8rem;
+  padding: 8rem;
   margin-bottom: 5rem;
 }
 
@@ -717,7 +718,7 @@ h2 {
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: 30% !important;
+  width: 45% !important;
 }
 
 .processo-p {
@@ -828,6 +829,10 @@ h2 {
   left: 0;
   z-index: 10;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown.text-dropdown.active .dropdown-toggle {
+  border-radius: 8px 8px 0px 0px;
 }
 
 /* 2. Revealed state when JS adds .active class */
@@ -1084,6 +1089,10 @@ h2 {
 /* 3. Mobile Specific Overrides */
 @media (max-width: 768px) {
 
+  .desktop-cheat {
+    display: none;
+  }
+
    /* --- 1. ABOUT ME SECTION --- */
   #about-me-section {
     margin-top: 5rem;
@@ -1097,6 +1106,8 @@ h2 {
     font-size: 2.5rem !important;
     width: 80% !important;
   }
+
+  
 
   .paboutme {
     font-size: 1.1rem;
@@ -1669,6 +1680,10 @@ h2 {
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
+    .desktop-cheat {
+    display: none;
+  }
+
   .contact-section {
     gap: 4rem;
     padding: 4rem 3rem;
@@ -1707,7 +1722,26 @@ h2 {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 460px) {
+
+  
+  .nav-container {
+    padding: 0 0.75rem; /* slightly tighter padding for small screens */
+  }
+
+  .nav-logo {
+    height: 22px;
+  }
+
+  .nav-toggle span {
+    width: 22px;
+    height: 3px;
+  }
+
+
+    .desktop-cheat {
+    display: none;
+  }
 
   
   .contato-header {
@@ -1767,68 +1801,4 @@ h2 {
     width: 85%;
     margin-top: 60px;
   }
-}
-
-/* Mobile & small tablets */
-@media (max-width: 1024px) {
-
-  #feedback-section {
-    gap: 4rem;
-    padding: 4rem 3rem;
-  }
-
-  .carousel-window {
-    width: 480px;
-  }
-
-  body {
-    overflow-x: hidden; /* prevent horizontal scroll */
-  }
-
-  /* NAVBAR */
-  .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem; /* consistent padding on all devices <= 1024px */
-    width: 100%;      /* prevent stretching */
-  }
-  
-  .nav-logo {
-    height: 25px;     /* smaller logo on tablets/phones */
-    width: auto;
-  }
-
-  .nav-toggle {
-    display: flex;    /* show hamburger */
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    z-index: 1001;    /* always above nav-menu */
-  }
-
-  .nav-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #000;
-    border-radius: 2px;
-  }
-}
-
-/* Extra small phones */
-@media (max-width: 480px) {
-
-  .nav-container {
-    padding: 0 0.75rem; /* slightly tighter padding for small screens */
-  }
-
-  .nav-logo {
-    height: 22px;
-  }
-
-  .nav-toggle span {
-    width: 22px;
-    height: 3px;
-  }
-
 }
