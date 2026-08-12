@@ -46,62 +46,109 @@
 
   <!--🡻🡻🡻"hero" is place where the home is located🡻🡻🡻-->
 
-    <div class="hero">
+<div class="hero">
+      <div class="hero-cursor-glow" id="heroCursorGlow"></div>
+
+      <div class="hero-star star-1">
+    <img src="img/star2.png" alt="" draggable="false">
+  </div>
+  <div class="hero-star star-2">
+    <img src="img/star1.png" alt="" draggable="false">
+  </div>
+
     <div class="hero-text">
-    <img draggable="false" id="hero-img" src="img/Portfolio-txt.webp">
-    <p id="hero-sub">Me chamo Miguel Henrique Cassapula e busco criar projetos que reflitam e abracem todas as suas demandas.  Atuo principalmente nas áreas de UI/UX, modelagem 3D e ilustração, buscando sempre atender a todos os seus requisitos.</p>
-    <a class="button" href="projetos/index.html">Projetos</a>
+
+      <button style="display: flex; opacity: 0;;">a</button>
+
+    <img draggable="false" id="hero-img" src="img/hero title.png">
+    <a id="projetos-hero" class="button" href="projetos/index.html">Projetos</a>
     </div>
     </div>
 
-  <!--🡻🡻🡻Banner🡻🡻🡻-->
+<!--🡻🡻🡻second part of the site🡻🡻🡻-->
 
- <div class="banner1">
-  <div class="layout-elements">
-    <img draggable="false"  class="bicon" src="img/time2.webp">
-    <p class="banner-text">Entrega rápida</p>
+<section id="about-me-section" class="reveal-right">
+
+  <div class="about-me-text">
+
+    <h1 class="haboutme">Sobre mim</h1>
+    <p class="paboutme">
+      Sou designer multidisciplinar e graduando no Bacharelado em Design na UTFPR. Minha trajetória começou na TI como técnico em 
+      Desenvolvimento de Sistemas, onde a Computação Gráfica e o UI/UX me aproximaram do design.  
+      </p>
+      <p class="paboutme">
+      Atuando com freelances desde 2020, construí um repertório prático e versátil, reconhecido por clientes e parceiros pela agilidade, precisão técnica e fidelidade 
+      ao briefing. Hoje, conecto o mercado, a sensibilidade estética e a pesquisa acadêmica (atuando também em Iniciação Científica) 
+      para entregar soluções visuais completas, funcionais e bem fundamentadas.
+    </p>
+
   </div>
 
-  <div class="layout-elements">
-    <img draggable="false" class="bicon" src="img/Money.webp">
-    <p class="banner-text">Preço justo</p>
+  <div class="about-me-image">
+    
+    <img id="itsmeimage" src="img/placeholder.png" alt="">
+
   </div>
 
-  <div class="layout-elements">
-    <img draggable="false" class="bicon" src="img/Star 1.webp">
-    <p class="banner-text">5 Estrelas</p>
+</section>
+
+<!--🡻🡻🡻? parte do site🡻🡻🡻-->
+
+<div id="some-of-my-projects" class="reveal-right">
+
+  <h1 class="projects-header">Projetos</h1>
+
+  <div class="recent-projects">
+
+    <a href="projetos/index.html#Websites" class="project-info">
+      <img class="project-info-img" src="projetos/img/websites/casadeleitura/1.gif" alt="">
+      <h2>UI/UX</h2>
+      <p class="p2">Casa de Leitura</p>
+    </a>
+
+    <a href="projetos/index.html#produtos" class="project-info">
+      <img class="project-info-img" src="projetos/img/Produtos/luminariamodular/thumb.png" alt="">
+      <h2>Produto</h2>
+      <p class="p2">Luminária modular</p>
+    </a>
+
+    <a href="projetos/index.html" class="project-info">
+      <img class="project-info-img" src="projetos/img/Ilustrações/Woman.webp" alt="">
+      <h2>Ilustração</h2>
+      <p class="p2">Retrato ilustrado</p>
+    </a>
+
+    <a href="projetos/index.html" class="project-info">
+      <img class="project-info-img" src="projetos/img/3D/TERS/thumb 1.gif" alt="">
+      <h2>3D</h2>
+      <p class="p2">Render TERS</p>
+    </a>
+
+    <a href="projetos/index.html" class="project-info">
+      <img class="project-info-img" src="projetos/img/Logos/zancT.png" alt="">
+      <h2>Branding</h2>
+      <p class="p2">Zanco.</p>
+    </a>
+
   </div>
 
-  <div class="layout-elements">
-    <img draggable="false" class="bicon" src="img/Shield.webp">
-    <p class="banner-text">Confiança</p>
-  </div>
+  <a id="projetos-btn" class="button" href="projetos/index.html">Acessar todos</a>
 
-  <div class="layout-elements">
-    <img draggable="false" class="bicon" src="img/Time.webp">
-    <p class="banner-text">Atualizações constantes</p>
-  </div>
 </div>
-
 
 <!--🡻🡻🡻second part of the site🡻🡻🡻-->
 
 <section id="feedback-section" class="reveal-right">
   <div class="feedback-text">
-    <h1 class="hfeedback">Avaliações dos clientes:</h1>
+    <h1 class="hfeedback">Depoimentos</h1>
 
     <p class="pfeedback">
-      O que aqueles que trabalharam comigo tem a dizer sobre o serviço
+      Construir bons projetos exige alinhamento, metodologia e compromisso com a qualidade. Vamos conferir os depoimentos de clientes 
+      que já trabalharam comigo e como essa parceria se refletiu no resultado final de cada entrega.
     </p>
 
-    <div class="feedbackicon">
-      <a href="https://www.99freelas.com.br/user/MiguelHenriqueCass"><img draggable="false" class="icon" src="img/99.webp"></a>
-      <a href=""><img draggable="false" class="icon" src="img/work.webp"></a>
-      <a href=""><img draggable="false" class="icon" src="img/up.webp"></a>
-      <a href="https://www.behance.net/miguelhenrique62"><img draggable="false" class="icon" src="img/be.webp"></a>
-    </div>
 
-    <a class="buttonfeedback" href="#windowtablayout">Contato</a>
+    <a class="button" href="#windowtablayout">Contato</a>
   </div>
 
   <div class="feedback-carousel">
@@ -115,8 +162,8 @@
       <div class="carousel-track" id="carouselTrack">
 
         <div class="carousel-item">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial">
+          <div class="feedback-stars">★★★★★</div>
+          <p class="testimonial" style="font-size: 1.1rem;">
             "Excelente profissional, muito atencioso, comprometido e ágil. 
             Toda a comunicação foi muito boa e ele foi super rápido e empenhado para realizar todos os ajustes que pedimos. 
             A entrega do projeto foi muito rápida e o trabalho ficou excelente. Recomendo a todos."
@@ -125,7 +172,7 @@
         </div>
 
         <div class="carousel-item">
-          <div class="stars">★★★★★</div>
+          <div class="feedback-stars">★★★★★</div>
           <p class="testimonial">
             "Profissional perfeito e atencioso! Entrega o que promete e tenta ao máximo te satisfazer."
           </p>
@@ -133,7 +180,7 @@
         </div>
 
         <div class="carousel-item">
-          <div class="stars">★★★★★</div>
+          <div class="feedback-stars">★★★★★</div>
           <p class="testimonial">
             "Exelente trabalho, cumpriu com os requisitos que eu pedi e foi atencioso nos detalhes do projeto."
           </p>
@@ -141,23 +188,24 @@
         </div>
 
         <div class="carousel-item">
-          <div class="stars">★★★★★</div>
+          <div class="feedback-stars">★★★★★</div>
           <p class="testimonial">
-            "Profissional técnico, organizado e preciso. A modelagem foi entregue conforme briefing, com ajustes rápidos e atenção ao acabamento. Arquivos finais adequados para fabricação. Recomendo."
+            "Profissional técnico, organizado e preciso. A modelagem foi entregue conforme briefing, com ajustes 
+            rápidos e atenção ao acabamento. Arquivos finais adequados para fabricação. Recomendo."
           </p>
           <span class="author">Stephani</span>
         </div>
 
         <div class="carousel-item">
-          <div class="stars">★★★★★</div>
+          <div class="feedback-stars">★★★★★</div>
           <p class="testimonial">
             "Muito bom trabalho, suporte e comunicação."
           </p>
-          <span class="author">Toinho S.</span>
+          <span class="author">Toinho S. (Nome dentro da plataforma)</span>
         </div>
 
         <div class="carousel-item">
-          <div class="stars">★★★★★</div>
+          <div class="feedback-stars">★★★★★</div>
           <p class="testimonial">
             "Excelente profissional, recomendo."
           </p>
@@ -165,7 +213,7 @@
         </div>
 
         <div class="carousel-item">
-          <div class="stars">★★★★★</div>
+          <div class="feedback-stars">★★★★★</div>
           <p class="testimonial">"Muito bom"</p>
           <span class="author">Isabelle A.</span>
         </div>
@@ -175,104 +223,105 @@
   </div>
 </section>
 
-<!--🡻🡻🡻? parte do site🡻🡻🡻-->
-
-<div id="portframe" class="reveal-right">
-<div>
-  <p class="portfolio-head">Portfólio↘</p>
-</div>
-<div id="gridlayout">
-
-  <img draggable="false"  id="ilust1" src="img/Ilust-1.jpg">
-
-  <div class="column">
-    <div class="text-box text1">
-      <p>Projetos</p>
-    </div>
-
-    <div class="img-box render">
-      <img draggable="false" src="img/Render-1.webp">
-    </div>
-  </div>
-
-  <div class="column">
-    <a class="text-box text2" id="projetos-acesses" href="projetos/index.html">
-      <p>Venha ver todos os meus projetos:</p>
-      <br>
-      <p id="acesse">Acesse ➜</p>
-    </a>
-
-    <div class="img-box brand">
-      <img draggable="false" src="img/branding-1.webp">
-    </div>
-
-    <div class="text-box2 text3">
-      <p>Ilustrações, 3D e Branding</p>
-    </div>
-  </div>
-
-  <img draggable="false" id="ilust2" src="img/Ilust-2.webp">
-</div>
-
-</div>
-
 <!--🡻🡻🡻terceira parte do site🡻🡻🡻-->
 
-<div class="terceira reveal-right">
-  <div id="navprocesso" class="processot">
-    <div>
-      <h2 class="titulo">
-        Briefing
-        <img draggable="false" class="process-icon" src="img/Briefing icon.webp">
-      </h2>
-      <p class="descrição">
-        Aqui iremos discutir sobre todos os requisitos do projeto e quais objetivos ele deve cumprir.
-        Tudo será documentado para consulta futura. Assim garantimos que o resultado final irá refletir
-        100% do que foi proposto.
-      </p>
-      <hr>
+<div class="processo reveal-right">
 
-      <h3 class="titulo">
-        Prototipagem
-        <img draggable="false" class="process-icon" src="img/Prototype icon.webp">
-      </h3>
-      <p class="descrição">
-        Irei mandar ideias e versões iniciais do projeto para podermos discutir a melhor alternativa
-        que melhor o representa.
-      </p>
-      <hr>
+  <div class="processo-text">
 
-      <h4 class="titulo">
-        Amostragem
-        <img draggable="false" class="process-icon" src="img/Amostragem icon.webp">
-      </h4>
-      <p class="descrição">
-        Vou mostrar como está ficando o projeto final, assim poderão ser apontados erros, melhorias
-        ou até novas funções.
-      </p>
+    <h1 class="processo-header">Meu processo</h1>
+    
+    <p class="processo-p">
+      Meu processo de trabalho garante clareza e precisão em 4 etapas: Briefing (alinhamento de necessidades e objetivos), Protótipo (criação de conceitos visuais e funcionais), Review (validação conjunta e ajustes finos) e Handoff (entrega de arquivos organizados e prontos para produção).
+    </p> 
+
+  </div>
+  <div class="dropdown-row">
+
+  <div class="nav-dropdown text-dropdown">
+    <button class="dropdown-toggle">
+      <div class="toggle-header">
+          <span class="toggle-title">1. briefing</span>
+      </div>
+      <div class="ver-mais">
+      <span dropdown-arrow>O que é isso?</span>
+      <span class="dropdown-arrow side-arrow">&#9656;</span>
+      </div>
+    </button>
+    <div class="dropdown-menu">
+      <p class="dropdown-text">Aqui discutiremos e documentaremos todos os requisitos e objetivos do projeto para consulta futura, garantindo que o resultado final reflita exatamente o que foi planejado.</p>
     </div>
   </div>
 
-  <img draggable="false" class="processo-img" src="img/Processo.webp">
+  <span class="next-arrow">&#9656;</span>
+
+  <div class="nav-dropdown text-dropdown">
+    <button class="dropdown-toggle">
+      <div class="toggle-header">
+        <span class="toggle-title">2. Protótipos</span>
+      </div>
+      <div class="ver-mais">
+      <span dropdown-arrow>Não entendi</span>
+      <span class="dropdown-arrow side-arrow">&#9656;</span>
+      </div>
+    </button>
+    <div class="dropdown-menu">
+      <p class="dropdown-text">Irei mandar ideias e versões iniciais do projeto para podermos discutir a melhor alternativa que melhor o representa.</p>
+    </div>
+  </div>
+
+  <span class="next-arrow">&#9656;</span>
+
+  <div class="nav-dropdown text-dropdown">
+    <button class="dropdown-toggle">
+      <div class="toggle-header">
+        <span class="toggle-title">3. Review</span>
+      </div>
+      <div class="ver-mais">
+      <span dropdown-arrow>Como funciona?</span>
+      <span class="dropdown-arrow side-arrow">&#9656;</span>
+      </div>
+    </button>
+    <div class="dropdown-menu">
+      <p class="dropdown-text">Vou mostrar como está ficando o projeto final, assim poderão ser apontados erros, melhorias ou até novas funções.</p>
+    </div>
+  </div>
+
+  <span class="next-arrow">&#9656;</span>
+
+  <div class="nav-dropdown text-dropdown">
+    <button class="dropdown-toggle">
+      <div class="toggle-header">
+        <span class="toggle-title">4. Handoff</span>
+      </div>
+      <div class="ver-mais">
+      <span dropdown-arrow>Como assim?</span>
+      <span class="dropdown-arrow side-arrow">&#9656;</span>
+      </div>
+    </button>
+    <div class="dropdown-menu">
+      <p class="dropdown-text">Parágrafo sobre você e suas qualificações.</p>
+    </div>
+  </div>
+
+</div>
+    
 </div>
 
 <!--🡻🡻🡻fourth part of the site🡻🡻🡻-->
 
   <div id="navcontato" class="contact-section reveal-right">
-  <div>
-    <h5 class="contato-header">Vamos conversar sobre seu projeto.</h5>
+  <div class="contato-text">
+    <h1 class="contato-header">Vamos conversar?</h1>
 
-    <div class="contato-desc">
+    <p class="contato-p">
       Envie uma mensagem descrevendo um pouco das suas demandas e vamos ajustar um orçamento que fique bom para você.
-    </div>
+    </p>
 
     <!-- ICONS BACK -->
     <div class="contato-buttons">
       <a class="contactbuttons" href="https://api.whatsapp.com/send/?phone=5541984133481&"><img id="buttonicons" src="img/whats.webp">Whatsapp</a>
       <a class="contactbuttons" href="https://www.behance.net/miguelhenrique62"><img id="buttonicons" src="img/Be2.webp">Miguel Cassapula</a>
-    </div>
-    <div class="contato-buttons">
-      <a class="contactbuttons" href="mailto:miguelhenriquecmds@gmail.com"><img id="buttonicons" src="img/email.webp">miguelhenriquecmds@gmail.com</a>
     </div>
   </div>
 
@@ -298,7 +347,7 @@
 
     <textarea id="message" placeholder="Descreva seu projeto" rows="5" required></textarea>
 
-    <button type="submit" class="buttonsend">Enviar</button>
+    <button type="submit" style="align-self: center; width: 100%;" class="button">Enviar</button>
   </form>
 </div>
 </div>
@@ -308,7 +357,6 @@
 <div class="footer-row">
 
   <img class="carinha" src="./img/Cara.gif" draggable="false">
-
 
 <div class="footer-colum">
   <p class="footer-head">Links</p>
@@ -323,11 +371,8 @@
   <p class="footer-head">Contato</p>
   <a class="footer-link" href="https://api.whatsapp.com/send/?phone=5541984133481&">WhatsApp</a>
   <a class="footer-link" href="mailto:miguelhenriquecmds@gmail.com">miguelhenriquecmds@gmail.com</a>
-  <a class="footer-link" href="https://www.behance.net/miguelhenrique62">Miguel Cassapula</a>
 <div class="footericon">
-      <a href="https://www.behance.net/miguelhenrique62"><img draggable="false" class="icon" src="img/99.webp"></a>
-      <a href=""><img class="ficon" src="img/work.webp"></a>
-      <a href=""><img class="ficon" src="img/up.webp""></a>
+      <a href="https://www.99freelas.com.br/user/MiguelHenriqueCass"><img draggable="false" class="icon" src="img/99.webp"></a>
       <a href="https://www.behance.net/miguelhenrique62"><img class="ficon" src="../img/be.webp"></a>
   </div>
 </div>
