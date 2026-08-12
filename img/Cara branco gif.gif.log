@@ -1,0 +1,21 @@
+C:/yt-dlp/ffmpeg.exe -hide_banner -y -y -r 50 -start_number 0 -start_number_range 1 -i C:/Users/Miguel/Documents/codes/Porfolio 2026/img/quadro%04d.png -i C:/Users/Miguel/Documents/codes/Porfolio 2026/img/KritaTempPalettegen_%06d.png -lavfi [0:v][1:v]paletteuse=dither=sierra2_4a:diff_mode=none -f gif -loop 0 -gifflags +transdiff C:/Users/Miguel/Documents/codes/Porfolio 2026/img/Cara branco gif.gif
+=====================================================
+Input #0, image2, from 'C:/Users/Miguel/Documents/codes/Porfolio 2026/img/quadro%04d.png':
+  Duration: 00:00:23.44, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgba(pc, gbr/unknown/unknown), 500x500 [SAR 11811:11811 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Input #1, image2, from 'C:/Users/Miguel/Documents/codes/Porfolio 2026/img/KritaTempPalettegen_%06d.png':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: N/A
+  Stream #1:0: Video: png, rgba(pc, gbr/unknown/unknown), 16x16 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Stream mapping:
+  Stream #0:0 (png) -> paletteuse
+  Stream #1:0 (png) -> paletteuse
+  paletteuse:default -> Stream #0:0 (gif)
+Press [q] to stop, [?] for help
+Output #0, gif, to 'C:/Users/Miguel/Documents/codes/Porfolio 2026/img/Cara branco gif.gif':
+  Metadata:
+    encoder         : Lavf62.6.103
+  Stream #0:0: Video: gif, pal8(pc, gbr/unknown/unknown, progressive), 500x500 [SAR 1:1 DAR 1:1], q=2-31, 200 kb/s, 50 fps, 100 tbn
+    Metadata:
+      encoder         : Lavc62.19.100 gif
+frame=   92 fps=0.0 q=-0.0 size=    1536KiB time=00:00:01.84 bitrate=6838.5kbits/s speed= 3.6x elapsed=0:00:00.51    frame=  169 fps=165 q=-0.0 size=    3072KiB time=00:00:03.38 bitrate=7445.5kbits/s speed= 3.3x elapsed=0:00:01.02    frame=  259 fps=169 q=-0.0 size=    5120KiB time=00:00:05.18 bitrate=8097.1kbits/s speed=3.37x elapsed=0:00:01.53    frame=  345 fps=168 q=-0.0 size=    6912KiB time=00:00:06.90 bitrate=8206.2kbits/s speed=3.37x elapsed=0:00:02.04    frame=  433 fps=168 q=-0.0 size=    8960KiB time=00:00:08.66 bitrate=8475.8kbits/s speed=3.37x elapsed=0:00:02.57    frame=  519 fps=168 q=-0.0 size=   11264KiB time=00:00:10.38 bitrate=8889.7kbits/s speed=3.36x elapsed=0:00:03.08    frame=  579 fps=161 q=-0.0 size=   12800KiB time=00:00:11.58 bitrate=9055.1kbits/s speed=3.22x elapsed=0:00:03.60    [out#0/gif @ 00000253bb0cea00] video:13046KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000150%
+frame=  586 fps=160 q=-0.0 Lsize=   13046KiB time=00:00:11.72 bitrate=9119.1kbits/s speed=3.21x elapsed=0:00:03.65    

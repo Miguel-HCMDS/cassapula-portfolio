@@ -1,0 +1,2834 @@
+html{
+  scroll-behavior: smooth !important;
+  overflow-x: hidden;
+}
+
+.spacing {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #fbfbfb;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*🡻🡻🡻Navbar🡻🡻🡻*/
+
+/* Navbar base */
+.navbar {
+  position: fixed;       /* follow scroll naturally */
+  padding: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: aliceblue;
+  z-index: 999;
+  border-bottom: 3px solid rgba(0,0,0,0.05);
+
+  /* Force smooth GPU compositing */
+  transform: translateZ(0);
+  will-change: transform;
+
+  /* transition for hiding */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hidden state */
+.navbar.hidden {
+  transform: translateY(-100%); /* slide up out of view */
+  opacity: 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* only horizontal padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.nav-logo {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #000;
+  width: auto;
+  height: 40px;
+}
+
+/* MENU */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+}
+
+/* UNDERLINE HOVER */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #481F90;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* CTA */
+.nav-cta {
+  padding: 0.4em 1em;
+  border-radius: 999px;
+  background: #481F90;
+  color: #fff;
+}
+
+.nav-cta::after {
+  display: none;
+}
+
+/* HAMBURGER */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+}
+
+.navbar, .nav-container, .nav-menu {
+  box-sizing: border-box; /* ensures width includes padding */
+}
+
+@media (max-width: 768px) {
+
+  body {
+  overflow-x: hidden;
+  width: 100%;
+  }
+
+  .nav-toggle {
+    display: flex;
+    position: relative;
+    z-index: 1001; /* hamburger always on top */
+  }
+
+  .nav-logo {
+  width: auto;
+  height: 25px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #f2f2f2;
+    max-width: 100%;     /* <- prevents stretching */
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+
+    /* 👇 invisible by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-10px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-container {
+    padding: 0 1rem; /* less than desktop */
+    width: 100%;    /* ensure it doesn't stretch beyond viewport */
+  }
+
+}
+
+/* Mobile & small tablets */
+@media (max-width: 1024px) {
+
+  body {
+    overflow-x: hidden; /* prevent horizontal scroll */
+  }
+
+  /* NAVBAR */
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem; /* consistent padding on all devices <= 1024px */
+    width: 100%;      /* prevent stretching */
+  }
+  
+  .nav-logo {
+    height: 25px;     /* smaller logo on tablets/phones */
+    width: auto;
+  }
+
+  .nav-toggle {
+    display: flex;    /* show hamburger */
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;    /* always above nav-menu */
+  }
+
+  .nav-toggle span {
+    width: 26px;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-width: 100%; /* prevent stretching on small screens */
+    background: #f2f2f2;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+
+    /* hide by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-10px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+  .nav-container {
+    padding: 0 0.75rem; /* slightly tighter padding for small screens */
+  }
+
+  .nav-logo {
+    height: 22px;
+  }
+
+  .nav-toggle span {
+    width: 22px;
+    height: 3px;
+  }
+
+  .nav-menu {
+    padding: 1.5rem 0;
+    gap: 1rem;
+  }
+}
+
+/*🡻🡻🡻 Hero 🡻🡻🡻*/
+
+/* Continuous rotation keyframe */
+@keyframes spinStar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Base class for hero stars */
+/* 2. Rotation Animation Keyframes */
+@keyframes spinStar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 3. Base class for Hero Stars */
+.hero-star {
+  position: absolute;
+  pointer-events: none; /* Allows user to click buttons/links through stars */
+  z-index: 2;           /* Places stars behind text content (hero-container has z-index: 2) */
+  will-change: transform;
+  animation: spinStar 20s linear infinite;
+}
+
+.hero-star img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 4. Desktop Placement & Sizing */
+.hero-star.star-1 {
+  width: clamp(80px, 12vw, 180px); /* Responsive sizing between 80px and 180px */
+  height: auto;
+  top: 10%;
+  right: 22%;
+  animation-duration: 40s;
+}
+
+.hero-star.star-2 {
+  width: clamp(60px, 25vw, 1530px); /* Responsive sizing between 60px and 130px */
+  height: auto;
+  bottom: -5%;
+  left: 10%;
+  animation-duration: 30s;
+  animation-direction: reverse;   /* Rotates counter-clockwise */
+}
+
+/* 5. Responsive Adjustments for Mobile & Tablets */
+@media (max-width: 768px) {
+  .hero-star.star-1 {
+    top: 30%;
+    right: 5%;
+  }
+  .hero-star.star-2 {
+    bottom: 28%;
+    left: 4%;
+  }
+}
+
+/* ==========================================
+   HERO DROPDOWN - DESKTOP (Float / Left)
+   ========================================== */
+.nav-dropdown {
+  position: relative;
+  align-self: flex-start; /* Left-aligned on desktop */
+
+  padding: 0;             /* Prevents extra space when closed */
+  display: inline-block;
+  z-index: 20;
+}
+
+/* Button style matching your buttons */
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6em 1.5em;
+  background: #EEEEEE;
+  color: #080909;
+  border: 4px solid #826aac;
+  border-radius: 999px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background: #481F90;
+  color: #EEEEEE;
+  border-color: #481F90;
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Menu: Hidden by default (display: none + absolute positioning) */
+.nav-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 220px;
+  background-color: #ffffff;
+  border: 2px solid #481F90;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 30;
+}
+
+/* Show menu when active */
+.nav-dropdown.active .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  padding: 0.75rem 1.2rem;
+  color: #333333;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #481F90;
+  color: #ffffff;
+}
+
+#no-border {
+  border-bottom: none !important;
+}
+
+/* ==========================================
+   HERO DROPDOWN - MOBILE (Push Down / Centered)
+   ========================================== */
+@media (max-width: 768px) {
+  .hero {
+    height: auto !important;
+    min-height: 100vh;
+    padding: 6rem 1rem 3rem 1rem;
+  }
+
+  .hero-text {
+    justify-content: flex-start !important;
+    align-items: center;
+    gap: 2rem;
+    height: auto !important;
+    padding: 0;
+  }
+
+  .nav-dropdown {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    align-self: center !important;
+    margin-left: 0;
+    padding: 0 !important; /* Zero padding when closed to eliminate extra space */
+  }
+
+  .dropdown-toggle {
+    font-size: 1rem;
+    padding: 0.5em 1.4em;
+    margin: 0;
+    width: auto !important;
+  }
+
+  /* Mobile menu collapses smoothly to 0 height */
+  .nav-dropdown .dropdown-menu {
+    display: flex;
+    position: static !important;
+    width: 90%;
+    max-width: 280px;
+    box-shadow: none;
+    
+    /* Dynamic height expansion */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease, visibility 0.3s ease;
+  }
+
+  .nav-dropdown.active .dropdown-menu {
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 12px;
+  }
+}
+
+/* Hidden menu container */
+.nav-dropdown .dropdown-menu {
+  display: none;
+  top: 100%;
+  z-index: 10;
+  display: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin-top: 0px;
+  background-color: #e8ffdbee;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 0px 0;
+}
+
+/* Active state to show menu */
+.nav-dropdown.active .dropdown-menu {
+  display: block;
+  height: auto;
+}
+
+/* Dropdown menu items */
+.dropdown-item {
+  border-bottom: #2f2f2f solid 2px;
+  display: block;
+  cursor: default !important;
+  padding: 10px 18px;
+  color: #333333;
+  text-decoration: none;
+  font-family: lato, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#no-border {
+  border-bottom: #2f2f2f solid 0px !important;
+}
+
+/* Mobile responsive alignment */
+@media (max-width: 768px) {
+  .nav-dropdown .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    margin-top: 16px;
+  }
+  
+  .dropdown-item {
+    padding: 0.6rem;
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+/*🡻🡻🡻 Hero 🡻🡻🡻*/
+
+.hero {
+  overflow: hidden !important;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh; /* remove if you want hero to shrink */
+  height: 95vh;      /* shrink to content */
+  width: 100vw;
+  border-bottom: 2px solid #481F90;
+  background-image: url("img/Hero.png");
+  background-size: cover;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;        /* optional: remove extra padding */
+}
+
+.hero-text {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  width: 100%;
+  height: 100%;
+  gap: 10%;
+}
+
+.hero-text p {
+  margin: 0; /* remove default p margins */
+}
+
+#tshaped{
+  display: flex;
+  position: sticky;
+  right: 100%;
+  margin: 0 auto;
+  color: #0e0d10;
+}
+
+#hero-img {
+  max-width: 50%;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(10px);
+  animation: dissolveIn 1s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+#projetos-hero{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 100%;
+  margin: 0 auto;
+  color: #121114;
+}
+
+#hero-sub {
+  max-width: 69%;
+  margin: 0 auto;
+  padding-bottom: 63px;
+  font-family: 'lato', sans-serif;
+  font-size: 1.5rem;
+
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(10px);
+  animation: dissolveIn 1s ease-out forwards;
+  animation-delay: 0.7s;
+}
+
+.button {
+  color: rgb(8, 9, 9);
+  border: #826aac solid 4px;
+  text-decoration: none;
+
+  /* Syntax: x-offset y-offset blur-radius spread-radius color */
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 3vw, 1.875rem);
+  display: inline-block;
+  padding: 0.4em 1.3em;
+  border-radius: 999px;
+  background: #fbfbfb;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(10px);
+  animation: dissolveIn 1s ease-out forwards;
+  animation-delay: 1.3s;
+
+
+  width: fit-content;
+  
+}
+
+.button:hover {
+  color: #EEEE !important;
+  background: #481F90;
+  transform: scale(1.01);
+  border: #481F90 solid 4px;
+}
+
+@keyframes dissolveIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/*🡻🡻🡻Responsive🡻🡻🡻*/
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .hero {
+    padding: 0 2rem;
+    margin-bottom: 0;
+  }
+
+  #hero-sub {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 0 1rem;
+    min-height: 103svh;
+  }
+
+  #hero-img,
+  #hero-sub {
+    max-width: 90%;
+  }
+
+  #hero-sub {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-text {
+    padding: 1rem 0;
+    gap: 5rem;
+  }
+
+  .button {
+    font-size: 1.4rem !important;
+    display: flex !important;
+    width: fit-content !important;
+    align-self: center !important;
+    justify-self: center !important;
+    position: inherit !important;
+    padding: 0.5em 1.4em;
+  }
+
+  .nav-dropdown {
+    font-size: 1rem !important;
+    display: flex !important;
+    flex-direction: column;
+    width: fit-content !important;
+    align-self: center !important;
+    justify-self: center !important;
+    position: relative;
+    padding: 0.5em 1.4em !important;
+  }
+  
+  .nav-dropdown .dropdown-menu {
+    position: fixed !important;
+  }
+
+  .dropdown-toggle {
+    font-size: 1rem;
+    padding: 0.7em 2em;
+    margin: -15px;
+    width: 100% !important;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .dropdown-arrow {
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  .hero {
+    padding: 0 0.75rem;
+  }
+
+  #hero-sub {
+    font-size: 1.2rem;
+  }
+
+  .button {
+    font-size: 0.95rem;
+    padding: 0.45em 1.2em;
+  }
+
+  .hero .button {
+    font-size: 1.5rem;
+    margin-top: 1.4rem;
+    margin: 0 auto; 
+    height: 3rem;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+}
+
+/*🡻🡻🡻 Banner 🡻🡻🡻*/
+
+.banner1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 170px;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  background: #481F90;
+}
+
+/* Each icon + text stack */
+.layout-elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon */
+.bicon {
+  height: 7vh;
+  width: auto;
+}
+
+/* Text */
+.banner-text {
+  color: white;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  padding-top: 10px;
+  text-align: center;
+}
+
+/* ⚠️ assuming this selector is intentional */
+text {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.3rem, 3vw, 1.875rem);
+  display: inline-block;
+}
+
+/*🡻🡻🡻 Mobile only 🡻🡻🡻*/
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .banner1 {
+    gap: 2.5rem;
+    padding: 2rem;
+    margin-top: 0;
+  }
+
+  .banner-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .banner1 {
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+    margin-top: 0;
+  }
+
+  .bicon {
+    height: 48px;
+  }
+
+  .banner-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .banner1 {
+    gap: 1.2rem;
+    padding: 1.2rem 0.75rem;
+  }
+
+  .bicon {
+    height: 40px;
+  }
+
+  .banner-text {
+    font-size: 0.85rem;
+  }
+}
+
+/*🡻🡻🡻second part of the site🡻🡻🡻*/
+
+h1 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0;
+  width: 100%;
+  border-bottom: 10px solid #481F90;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+  width: 95%;
+}
+
+.about-me-image {
+  display: flex;
+  justify-content: center;
+}
+
+#itsmeimage {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;    
+  object-fit: contain;  
+  margin: 0 auto ;
+  display: block ;
+}
+
+#about-me-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 8.5rem;
+}
+
+.about-me-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 2.5rem;
+  width: 80%;
+}
+
+.paboutme {
+  display: flex;
+  flex-direction: row;
+  width: 92%;
+}
+
+.haboutme {
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  width: 50%;
+}
+
+/*🡻🡻🡻second part of the site🡻🡻🡻*/
+
+/* SECTION LAYOUT */
+#feedback-section {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-around;
+  vertical-align: middle;
+  padding: 8rem;
+
+  /*Animation*/
+
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+
+}
+
+/* when revealed */
+#feedback-section.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* RIGHT COLUMN */
+.feedback-carousel {
+  display: flex;
+  align-items: center; /* centers carousel vertically */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 50%;
+}
+
+/* TEXT COLUMN */
+.feedback-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.7rem;
+  padding: 0;
+  width: 45%;
+}
+
+.hfeedback {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  margin: 0;
+  width: 90%;
+}
+
+.pfeedback {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+  width: 100%;
+}
+
+.feedbackicon {
+  display: flex;
+  gap: 20px;
+}
+
+.icon {
+  width: 2.5rem;
+  height: auto;
+}
+
+.buttonfeedback {
+  width: fit-content;
+  padding: 0.9rem 3rem;
+  border-radius: 999px;
+  background: #481F90;
+  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.buttonfeedback:hover {
+  transform: scale(1.05);
+  background: #5c369e;
+}
+
+/* STACKED BUTTONS */
+.carousel-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+#bulletpoint {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+/* BUTTONS */
+.carousel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #000;
+  color: black;
+  border-radius: 999px;
+  width: 50px;          /* slightly larger (old feel) */
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.05);
+  background: #481F90;
+  color: white;
+  border: 1px solid #ffffff;
+}
+
+/* VIEWPORT */
+.carousel-window {
+  height: 400px;        /* JS depends on this */
+  width: 100%;         /* closer to old visual balance */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* TRACK */
+.carousel-track {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+}
+
+/* ITEMS */
+.carousel-item {
+  height: 400px;        /* must match carousel-window */
+  box-sizing: border-box;
+  padding: 2.2rem;      /* more breathing room (old version) */
+  background: #f5f4f3;
+  border: 2px solid #481F90;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: "Outfit", sans-serif;
+}
+
+/* STARS */
+.feedback-stars {
+  color: #481F90;
+  font-size: 2.0rem;    /* larger like old */
+  letter-spacing: 6px;
+}
+
+/* TESTIMONIAL TEXT */
+.testimonial {
+  color: #000;
+  margin: 1.4rem 0;
+  font-size: 1.3rem;   /* old rhythm restored */
+  line-height: 1.6;
+  text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+}
+
+/* AUTHOR */
+.author {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .carousel-item {
+    height: 500px;
+  }
+
+  .carousel-window {
+    width: 520px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #feedback-section {
+    gap: 4rem;
+    padding: 4rem 3rem;
+  }
+
+  .carousel-window {
+    width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* SECTION STACKS */
+  #feedback-section {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+    margin: 0;
+  }
+
+  /* TEXT BLOCK */
+  .feedback-text {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hfeedback {
+    font-size: 2.5rem;
+    width: 80%;
+  }
+
+  .pfeedback {
+    font-size: 1.2rem;
+  }
+
+  .feedbackicon {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .icon {
+    width: 40px;
+  }
+
+  /* BUTTON */
+  .buttonfeedback {
+    font-size: 1rem;
+  }
+
+  /* CAROUSEL AREA */
+  .feedback-carousel {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  /* BUTTONS GO HORIZONTAL */
+  .carousel-buttons {
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    order: 2;
+  }
+
+  .carousel-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  /* CAROUSEL WINDOW */
+  .carousel-window {
+    width: 100%;
+    max-width: 100%;
+    height: 360px;
+  }
+
+  .carousel-item {
+    height: 360px;
+    padding: 1.5rem;
+  }
+
+  .testimonial {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .feedback-stars {
+    font-size: 2rem;
+  }
+
+  .author {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .testimonial {
+    font-size: 0.95rem;
+  }
+
+  .carousel-window,
+  .carousel-item {
+    height: 320px;
+  }
+
+  .carousel-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+  }
+}
+
+/*🡻🡻🡻? parte do site🡻🡻🡻*/
+
+#some-of-my-projects {
+  padding: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1800px;      /* Prevents content from stretching endlessly on TVs */
+  margin: 0 auto;         /* Centers the section on large screens */
+  box-sizing: border-box;
+}
+
+.projects-header {
+  display: flex;
+  width: 30%;
+  justify-content: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.recent-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.project-info {
+  background-color: #481F90;
+  width: 14rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  border: #481F90 solid 3px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  min-width: 0; /* <--- ADD THIS LINE */
+}
+
+.project-info:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.project-info-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 6;
+}
+
+h2 {
+  color: #EEEE !important;
+  font-family: Outfit, sans-serif;
+  font-size: 1.5rem;
+  margin: 1rem 1rem 0rem 1rem;
+}
+
+.p2 {
+  font-size: 1.1rem;
+  color: #ffffff; /* or whatever text color fits your card background */
+  width: auto;    /* resets global 'p' width: 95% */
+  margin: 1rem;
+  text-align: center;
+}
+
+#projetos-btn {
+  align-items: center;
+}
+
+/*🡻🡻🡻? parte do site🡻🡻🡻*/
+
+#portframe {
+  /*Animation*/
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+}
+
+/* when revealed */
+#portframe.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.portfolio-head {
+  font-family: "Outfit", sans-serif;
+  font-size: 8vh;
+  font-weight: 700;
+  width: auto;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  padding-left: 2.5rem;
+  margin: 0;
+}
+
+#gridlayout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding-bottom: 4rem;
+}
+
+/* columns */
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px; /* 🔑 this fixes it */
+}
+
+/* TEXT RECTANGLES */
+.text-box {
+  width: 100%;
+  border: 4px solid #1e1e1e;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.2rem;
+  text-decoration: none;
+  color: #000;
+}
+
+.text-box2 {
+  width: 100%;
+  border: 4px solid #1e1e1e;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.2rem;
+}
+
+#projetos-acesses {
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+#projetos-acesses:hover {
+  transform: scale(1.05);
+  background: #481F90;
+  color: white;
+  border: 1px solid #ffffff;
+}
+
+/* ensure child text follows */
+#projetos-acesses p {
+  color: inherit;
+}
+
+.text-box p {
+  margin: 0;
+  color: #1e1e1e;
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem; /* change this */
+  padding: 0;
+  margin: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.text-box2 p {
+  margin: 0;
+  color: #1e1e1e;
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem; /* change this */
+  padding: 0;
+  margin: 0;
+}
+
+#acesse {
+  border: 4px solid #1e1e1e;
+  padding: 0.2rem;
+  height: auto;
+  width: 13rem;
+  font-size: 1.4rem;
+  border-radius: 9px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+/* when hovering the whole box */
+#projetos-acesses:hover #acesse {
+  color: white;
+  border-color: white;
+}
+
+/*text height*/
+.text1 { height: 22.2vh; }
+.text2 { height: 28.5vh; padding: 30px;}
+.text3 { height: 11vh; }
+
+.text-box2 p {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+/* IMAGE RECTANGLES */
+.img-box {
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-box.render { height: 45vh; }
+.img-box.render { width: 45vh; }
+.img-box.brand  { height: 25vh; }
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* side illustrations unchanged */
+#ilust1 {
+  padding-left: 40px;
+  height: 70vh;
+  width: auto;
+}
+
+#ilust2 {
+  padding-right: 40px;
+  height: 70vh;
+  width: auto;
+}
+
+/* 📱 MOBILE LAYOUT */
+@media (max-width: 768px) {
+
+  #acesse {
+    background-color: #481F90;
+    color: aliceblue !important;
+    border-color: #481F90;
+    border-radius: 999px;
+    font-size: 1.1rem;        /* ⬆ bigger button text */
+    padding: 0.6rem 1.4rem;  /* ⬆ taller button */
+  }
+
+  .portfolio-head {
+    font-size: 3rem;
+    padding: 1.5rem 0 1rem 1.5rem;
+  }
+
+  /* Grid layout */
+  #gridlayout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr; /* ⬅ text smaller, images larger */
+  grid-template-areas:
+    "title ilust1"
+    "cta cta"
+    "render brand"
+    "desc ilust2";
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+  /* Grid areas */
+  .portfolio-head { grid-area: title; }
+  #ilust1 { grid-area: ilust1; }
+  #projetos-acesses { grid-area: cta; }
+  .text3 { grid-area: desc; }
+  #ilust2 { grid-area: ilust2; }
+  .img-box.render { grid-area: render; }
+  .img-box.brand { grid-area: brand; }
+
+  /* Columns no longer needed */
+  .column {
+  display: contents;
+}
+
+/* restore box-model ONLY for CTA */
+#projetos-acesses {
+  display: flex;
+}
+
+  /* ===== RESET HEIGHTS ===== */
+  #ilust1, #ilust2,
+  .img-box.render, .img-box.brand,
+  .text-box, .text-box2, .text2, .text3 {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  /* Text boxes as squares */
+  .text-box,
+  .text-box2,
+  .text2,
+  .text3 {
+    width: 78%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  /* ===== CTA: PROJETOS ACESSES (TALLER + BIGGER TEXT) ===== */
+  #projetos-acesses {
+  grid-area: cta;
+  width: 100%;
+
+  min-height: 360px;   /* ⬅ NOTICEABLY TALL */
+  padding: 6.5rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  aspect-ratio: unset !important;  /* ⬅ breaks square lock */
+}
+  
+#portframe .text-box p,
+#portframe .text-box2 p,
+#portframe .text2 p,
+#portframe .text3 p,
+#portframe #projetos-acesses p {
+    font-size: 2rem; /* still big, less cramped */      /* ⬆ slightly bigger text */
+    line-height: 1.3;
+  }
+
+  /* ===== IMAGE CONTAINERS (SQUARE, NO DISTORTION) ===== */
+
+  .img-box.brand {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .img-box.brand img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+    .img-box.render {
+      width: 78%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+
+  /* Ilustrations */
+  #ilust1,
+  #ilust2 {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* ===== SAFE MOBILE IMAGE SWAPS ===== */
+  #ilust1 { content: url("img/Ilust1-mobile.png"); }
+  #ilust2 { content: url("img/Ilust2-mobile.png"); }
+  .img-box.render img { content: url("img/Render-1.webp"); }
+  .img-box.brand img { content: url("img/branding1-mobile.png"); }
+
+}
+
+@media (max-width: 360px) {
+
+  .portfolio-head {
+    font-size: 2.4rem;
+    padding: 1rem 0 0.75rem 1rem;
+  }
+
+  #gridlayout {
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  /* Text boxes: still square, but tighter */
+  .text-box,
+  .text-box2,
+  .text2,
+  .text3 {
+    padding: 0.75rem;
+  }
+
+  #portframe .text3 p {
+    font-size: 1.3rem !important;
+    line-height: 1.2;
+  }
+
+  #portframe .text-box p,
+  #portframe .text-box2 p,
+  #portframe .text2 p {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  /* CTA: reduce height so it doesn’t dominate */
+  #projetos-acesses {
+    min-height: 240px;
+    padding: 3rem 1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .portfolio-head {
+    font-size: 3.4rem;
+    padding: 2rem 0 1.5rem 2rem;
+  }
+
+  #gridlayout {
+    gap: 1.75rem;
+    padding: 2rem;
+  }
+
+  /* Text boxes: still square, but roomier */
+  .text-box,
+  .text-box2,
+  .text2,
+  .text3 {
+    padding: 1.5rem;
+  }
+
+  #portframe .text-box p,
+  #portframe .text-box2 p,
+  #portframe .text2 p,
+  #portframe .text3 p {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  /* CTA slightly less tall than mobile */
+  #projetos-acesses {
+    min-height: 300px;
+    padding: 4.5rem 2rem;
+  }
+
+  /* Images breathe a bit more */
+  .img-box.render,
+  .img-box.brand {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/*🡻🡻🡻 Processo 🡻🡻🡻*/
+
+.processo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 8rem 8rem 0 8rem;
+  margin-bottom: 5rem;
+}
+
+.processo-text {
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.processo-header {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 30% !important;
+}
+
+.processo-p {
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+}
+
+/* Position the dropdown container relative */
+.nav-dropdown.dropdown-text {
+  position: relative;
+  display: inline-block;
+}
+
+/* Button & Flush connection */
+.nav-dropdown.active .dropdown-toggle {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  transition: border-radius 0s !important;
+}
+
+.nav-dropdown.active .dropdown-menu {
+  display: block;
+  border-top-left-radius: 0 !important;
+}
+
+/* Styling for paragraphs inside the dropdown */
+.dropdown-text {
+  margin: 0;
+  color: #333333;
+  font-size: 1.1rem !important;
+  line-height: 1.5;
+  font-family: "Outfit", sans-serif;
+}
+
+/* =======================
+   CUSTOM TEXT DROPDOWN STYLES
+   ======================= */
+
+/* Flex row container for the 4 dropdowns */
+.dropdown-row {
+  display: flex;
+  vertical-align: middle;
+  align-items: unset;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+  flex-direction: row;
+  gap: 5px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual dropdown container takes equal flex space */
+.nav-dropdown.text-dropdown {
+  position: relative;
+  align-self: unset;
+  flex: 1; /* Makes all 4 buttons equal width */
+}
+
+/* Button formatting */
+.nav-dropdown.text-dropdown .dropdown-toggle {
+  width: 18rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 0rem 3rem 0rem;
+  gap: 0;
+  background: linear-gradient(to right, #481F90, #2f145d) !important;
+  border: 0px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform, border-radius 0s !important;
+}
+
+.nav-dropdown.text-dropdown .dropdown-toggle:hover {
+  transform: scale(1.01) !important;
+}
+
+.toggle-header {
+  display: flex;
+  font-size: 2rem;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-dropdown.text-dropdown .toggle-title {
+  color: aliceblue !important;
+}
+
+.toggle-icon {
+  width: 30px;
+  height: auto;
+  object-fit: contain;
+}
+
+.ver-mais {
+  font-family: lato, sans-serif;
+  font-weight: 550;
+  color: rgb(125, 180, 228);
+  font-size: 1.3rem !important;
+}
+
+.side-arrow {
+  display: inline-block; /* REQUIRED for transform/rotate to work */
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.next-arrow {
+  display: inline-block; /* REQUIRED for transform/rotate to work */
+  font-size: 2.5rem;
+  transition: transform 0.2s ease;
+  margin-top: 4.5rem;
+  color: #481F90;
+}
+
+/* Flatten button bottom corners when THIS dropdown is active */
+.nav-dropdown.text-dropdown.active .dropdown-toggle {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.nav-dropdown.text-dropdown.active .side-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu touching directly underneath the button */
+.nav-dropdown.text-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  margin-top: 0 !important;
+  background-color: #ffffff;
+  border: 0px solid #e0e0e0;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+}
+
+.nav-dropdown.text-dropdown.active .dropdown-menu {
+  display: block;
+  width: 100%;
+}
+
+.dropdown-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #444444;
+}
+
+/* Mobile responsive fallback */
+@media (max-width: 768px) {
+  .dropdown-row {
+    flex-direction: column;
+  }
+
+  .processo-p {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 30% !important;
+  }
+
+  .next-arrow {
+  display: inline-block; /* REQUIRED for transform/rotate to work */
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+  margin-top: 0rem;
+  display: none;
+  transform: rotate(90deg);
+}
+
+.dropdown-row {
+  gap: 2rem;
+}
+
+}
+/*🡻🡻🡻terceira parte do site🡻🡻🡻*/
+
+.terceira {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* <-- centers items vertically */
+  justify-content: space-between; /* optional: adds space between text and image */
+  padding: 0px; /* optional: gives some horizontal padding */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  /*Animation*/
+
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+}
+
+/* when revealed */
+.terceira.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.titulo {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.descricao {
+  font-family: "Lato", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+
+.processot {
+  display: flex;
+  flex-direction: column; /* column for text content */
+  justify-content: center;
+  width: 100%;
+  gap: 5px; /* space between headings/paragraphs */
+  padding: 40px;
+}
+
+.processo-img {
+  width: auto;
+  height: 95vh; /* or whatever size you want */
+  display: block;
+  margin-left: auto; /* space between text and image */
+  background: linear-gradient(to bottom, rgba(238, 238, 238, 0), rgb(225, 225, 225));
+}
+
+/* process section icons */
+.process-icon {
+  width: auto;
+  height: 5vh;
+  padding-left: 24px;
+  vertical-align: middle;
+}
+
+/* process section text */
+.process-text {
+  margin-bottom: 50px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 6px solid #481F90;
+  margin: 1em 0;
+  padding: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .titulo {
+    font-size: 2.2rem;
+  }
+
+  .descricao {
+    font-size: 1.2rem;
+  }
+
+  .processo-img {
+    height: auto;
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .terceira {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.25rem;
+    gap: 2rem;
+  }
+
+  .processot {
+    width: 100%;
+    padding: 0;
+  }
+
+  .titulo {
+    font-size: 2.3rem;
+    line-height: 1.2;
+  }
+
+  .descricao {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .process-icon {
+    height: 1.6rem;
+    padding-left: 12px;
+  }
+
+.processo-img {
+  width: calc(100% + 3rem);   /* escape container padding */
+  max-width: none;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+
+  display: block;
+  height: auto;
+}
+
+  hr {
+    border-top-width: 4px;
+    margin: 1.2rem 0;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  .descricao {
+    font-size: 1rem;
+  }
+
+  .process-icon {
+    height: 1.4rem;
+  }
+}
+
+/*🡻🡻🡻fourth part of the site🡻🡻🡻*/
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding: 8rem;
+  /*Animation*/
+
+  opacity: 0;
+  transform: translatey(-80px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+
+}
+
+/* when revealed */
+.contact-section.is-visible {
+  opacity: 1;
+  transform: translatey(0);
+}
+
+.contato-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.contato-header {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  color: #000;
+  max-width: 50vw;      /* controls line length */
+  line-height: 1.1;     /* tight, headline-style */
+  margin: 0;
+
+}
+
+.contato-desc {
+  font-family: "lato", sans-serif;
+  font-size: 1.3rem;
+  color: #000;
+  max-width: 40vw;      /* controls line length */
+  line-height: 1.1;     /* tight, headline-style */
+  margin: 0;
+  padding-bottom: 40px;
+}
+
+.contato-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 18rem);
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+#windowtablayout {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #481F90;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f7f7f7;
+  height: auto;
+  width: 88vw;
+  vertical-align: middle;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  margin: 0;
+}
+
+#button2style {
+  display: flex;
+  flex-direction: row;
+}
+
+.contactbuttons {
+    display: flex;
+    align-items: center;   /* 👈 vertical centering */
+    justify-content: center;
+    gap: 12px;
+    color: aliceblue;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1em 2em;
+    width: auto;
+    border-radius: 9px;
+    background: #481F90;
+    cursor: pointer;
+}
+
+.contactbuttons:hover {
+    background: #7043bd;
+    transform: scale(1.01);
+}
+
+#buttonicons {
+    height: 25px;
+    width: auto;
+    display: block;
+}
+
+.buttonsend {
+    display: flex;
+    align-items: center;
+    gap: 20px;        /* replaces padding-right */
+    justify-content: center;
+    color: aliceblue;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 3vw, 1.875rem);
+    display: flex;
+    padding: 0.1em 1.0em;
+    width: 60%;
+    border-radius: 999px;
+    background: #481F90;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    align-items: center;   /* 👈 vertical alignment */
+}
+
+.buttonsend:hover {
+    background: #7043bd;
+    transform: scale(1.01);
+}
+
+/* GRID FOR THE text area and button */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  background: #f7f7f7;
+  padding: 28px;
+}
+
+/* GRID FOR THE FIRST 4 FIELDS */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #fff;
+}
+
+.contact-form textarea {
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* FOCUS STYLE */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #481F90;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .contact-section {
+    gap: 4rem;
+    padding: 4rem 3rem;
+  }
+
+  .contato-header {
+    font-size: 3rem;
+  }
+
+  #windowtablayout {
+    width: 48vw;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* SECTION STACKS */
+  .contact-section {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+    margin: 0;
+  }
+
+  /* TEXT BLOCK */
+  .contact-section > div:first-child {
+    max-width: 100%;
+    text-align: center;
+    gap: 0 !important;
+  }
+
+  .contato-header {
+    font-size: 2.4rem;
+    max-width: 100%;
+    padding-bottom: 1.5rem;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+  }
+
+  .contato-desc {
+    font-size: 1rem;
+    max-width: 100%;
+    line-height: 1.4;
+    padding-bottom: 2rem;
+  }
+
+  /* CONTACT BUTTONS */
+  .contato-buttons {
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(1, 18rem);
+    gap: 20px;
+    padding-bottom: 40px;
+  }
+
+  .contactbuttons {
+    font-size: 1rem;
+    padding: 0.8em 1.4em;
+  }
+
+  #buttonicons {
+    height: 20px;
+  }
+
+  /* FORM CONTAINER */
+  #windowtablayout {
+    width: 95%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* WINDOW IMAGE */
+  #windowtab {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* FORM */
+  .contact-form {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* TEXTAREA */
+  .contact-form textarea {
+    font-size: 1rem;
+  }
+
+  /* SEND BUTTON */
+  .buttonsend {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.6em 1em;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .contato-header {
+    font-size: 2rem;
+  }
+
+  .contato-desc {
+    font-size: 0.95rem;
+  }
+
+  .contactbuttons {
+    font-size: 0.95rem;
+  }
+
+  .buttonsend {
+    font-size: 1rem;
+  }
+}
+
+/*🡻🡻🡻Footer oxente🡻🡻🡻*/
+
+.footer-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #2f2f2f;
+  padding: 2%;
+  gap: 15%;
+  height: auto;
+}
+
+.carinha {
+  width: 25rem;
+  height: auto;
+}
+
+.footer-colum {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-head {
+  color: aliceblue;
+  font-family: 'Outfit', sans-serif;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.footer-link {
+  color: rgb(181, 181, 181);
+  font-family: 'lato', sans-serif;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.footericon {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 3%;
+}
+
+.ficon {
+  width: auto;
+  height: 45px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .footer-row {
+    gap: 120px;
+    padding: 2.5rem;
+  }
+
+  .carinha {
+    width: 22rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .footer-row {
+    flex-direction: column;
+    align-items: stretch;   /* allow left-aligned text */
+    gap: 2.5rem;
+    padding: 3rem 1.5rem;
+  }
+
+  /* TEXT COLUMNS LEFT */
+  .footer-colum {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer-head {
+    font-size: 1.6rem;
+  }
+
+  .footer-link {
+    font-size: 1rem;
+  }
+
+  /* ICONS STAY LEFT */
+  .footericon {
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+
+  .ficon {
+    width: 32px;
+    height: auto;
+    opacity: 1;
+  }
+
+  /* VIDEO CENTERED & LAST */
+  .carinha {
+    align-self: center;   /* 👈 centers only the video */
+    width: 70%;
+    max-width: 260px;
+    margin-top: 80px;
+    order: 99;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .footer-head {
+    font-size: 1.3rem;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+  }
+
+  .carinha {
+    width: 85%;
+    margin-top: 60px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVENESS FOR ABOUT ME, PROCESS & PROJECTS (MOBILE & TABLET)
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* --- 1. ABOUT ME SECTION --- */
+  #about-me-section {
+    margin-top: 5rem;
+    flex-direction: column !important; /* Stack text and image vertically */
+    padding: 0.1rem !important;
+    gap: 2rem !important;
+    text-align: center;
+  }
+
+  .haboutme {
+    font-size: 2.5rem !important;
+    width: 80% !important;
+  }
+
+  .paboutme {
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  .about-me-text {
+    padding: 1rem;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+  }
+
+  .textosobre p {
+    font-size: 1.1rem !important;
+  }
+
+  .sobre-img-container {
+    width: 100% !important;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* --- 2. PROJECTS SECTION (#portframe) --- */
+
+  .processo {
+    margin: 5rem 0 5rem 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0.1rem;
+  }
+
+  .projects-header {
+    font-size: 2.5rem !important;
+    width: 80%;
+  }
+
+  #some-of-my-projects {
+    gap: 2.5rem;
+    padding: 0.1rem;
+    width: 100%;
+    padding: 5rem 0 5rem 0 !important;
+  }
+
+  .recent-projects {
+  display: grid;
+  margin: 0;
+  padding: 1.3rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px; /* Optional spacing */
+}
+
+/* Make the 3rd (last) item span both grid columns */
+.recent-projects > *:last-child {
+  grid-column: 1 / -1;     /* Spans from column line 1 to the end */
+  justify-self: center;    /* Centers the item horizontally */
+  width: 50%;              /* Adjust width as needed (e.g., 50% matches the width of upper items) */
+}
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .p2 {
+    font-size: 1rem;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .project-info {
+    width: 100%;
+    height: auto;
+  }
+
+  #portframe {
+    padding: 2rem 1rem !important;
+  }
+
+  .grid-portfolio {
+    grid-template-columns: 1fr !important; /* Single column layout on mobile */
+    gap: 1.5rem !important;
+  }
+
+  .card-portfolio {
+    height: auto !important;
+    min-height: 280px;
+  }
+
+  .card-portfolio-title {
+    font-size: 1.5rem !important;
+  }
+
+ /* --- 3. PROCESS SECTION (#navprocesso) --- */
+  #navprocesso {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .processo-p {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .nav-dropdown.text-dropdown {
+    width: 100% !important;
+  }
+
+  .tituloprocesso {
+    font-size: 2rem !important;
+    text-align: center;
+  }
+
+  .subtituloprocesso {
+    font-size: 1.1rem !important;
+    text-align: center;
+    margin-bottom: 2rem !important;
+  }
+
+  .processo-header {
+    font-size: 2.5rem;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    width: 80% !important;
+  }
+
+  .processo-p {
+    width: 100% !important;
+  }
+
+  #navcontato {
+    padding: 0.1rem;
+    padding: 5rem 0 5rem 0;
+    display: flex;
+
+    gap: 0;
+  }
+
+  .contato-header {
+    font-size: 2.5rem;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    width: 80% !important;
+  }
+
+  .contato-p {
+    width: 100% !important;
+    margin: 3rem 0 3rem 0;
+    font-size: 1.1rem;
+  }
+
+  .toggle-header {
+    font-size: 2rem;
+  }
+
+  .ver-mais {
+    font-size: 1.5rem;
+  }
+
+  /* Force dropdown menus to sit inside normal page flow on mobile */
+  .nav-dropdown .dropdown-menu,
+  .nav-dropdown-content,
+  .nav-dropdown.text-dropdown .dropdown-menu {
+    position: relative !important;   /* Pushes lower elements down */
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    margin-top: 10px;
+  }
+
+  /* Allow the parent containers to expand their height vertically */
+  .nav-dropdown,
+  .processo-card,
+  .card-habilidade {
+    height: auto !important;
+    min-height: fit-content;
+    overflow: visible !important;
+  }
+
+  .nav-dropdown.text-dropdown .dropdown-menu {
+    position: relative !important;   /* Keeps it below the title/toggle button */
+    justify-self: center;
+    top: 0 !important;
+    left: 0 !important;
+    width: 99rem !important;
+    padding: 2rem 0rem 2rem 0rem;
+    margin-top: 1rem !important;     /* Adds vertical space below the toggle button */
+    box-shadow: none;               /* Optional: clean look on mobile stack */
+  }
+
+  .dropdown-text {
+    display: flex;
+    justify-content: center !important;
+    justify-self: center !important;
+    font-size: 1rem;
+  }
+
+  /* Container layout for mobile stack */
+  .processo-container,
+  .grid-processo {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  /* Individual card styling */
+  .processo-card {
+    width: 100% !important;
+    height: auto !important;
+    padding: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+  }
+
+  .processo-number {
+    font-size: 1.8rem !important;
+    font-weight: 700;
+  }
+
+  .processo-title {
+    font-size: 1.3rem !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  .processo-text {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* Tablet Adjustments (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #sobre-mim {
+    padding: 3rem 2rem !important;
+    gap: 2rem !important;
+  }
+
+  .grid-portfolio {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 columns on tablets */
+  }
+
+  .grid-processo {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* =========================================================
+   PROCESS DROPDOWN FLOW & MOBILE WIDTH OVERRIDE FIX
+   ========================================================= */
+
+/* 1. Global & Desktop Flow Fix:
+   Switch dropdown-menu from absolute to relative flow so items push down */
+.nav-dropdown .dropdown-menu,
+.nav-dropdown.text-dropdown .dropdown-menu {
+  position: relative !important;   /* Pulls menu back into document flow */
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;     /* Clears absolute centering transforms */
+  
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Container reset to ensure full width alignment */
+.nav-dropdown,
+.nav-dropdown.text-dropdown,
+.processo-container,
+.grid-processo {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;   /* Prevents content clipping */
+}
+
+/* 3. Mobile Specific Overrides */
+@media (max-width: 768px) {
+  .nav-dropdown,
+  .nav-dropdown.text-dropdown,
+  .processo-card {
+    width: 100% !important;
+    padding-left: 1rem !important;  /* Consistent inner edge spacing */
+    padding-right: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-dropdown .dropdown-menu,
+  .nav-dropdown.text-dropdown .dropdown-menu {
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .dropdown-text,
+  .processo-text {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important; /* Prevents long text overflow */
+  }
+}
