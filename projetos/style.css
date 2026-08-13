@@ -1020,7 +1020,7 @@ iframe.modal-video,
 .study-text {
   width: 100%;
   max-width: 850px;
-  padding: 2rem;
+  padding-bottom: 1.4rem;
   margin: 0 auto;
   color: #121212;
   font-family: Lato, sans-serif;
