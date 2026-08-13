@@ -37,7 +37,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.35 // reveal when 25% visible
+    threshold: 0.25 // reveal when 25% visible
   }
 );
 

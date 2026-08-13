@@ -10,6 +10,15 @@ body{
     overflow-x: hidden;
 }
 
+/* Remove explicit GPU layer creation to save RAM */
+  .reveal-right,
+  .hero-star,
+  #portframe,
+  .terceira,
+  .contact-section {
+    will-change: auto !important;
+  }
+
 /* 1. Starting state: Hidden and shifted to the right */
 .reveal-right {
   opacity: 0;
@@ -193,24 +202,6 @@ body{
   padding: 0;             /* Prevents extra space when closed */
   display: inline-block;
   z-index: 20;
-}
-
-/* Button style matching your buttons */
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.6em 1.5em;
-  background: #EEEEEE;
-  color: #080909;
-  border: 4px solid #826aac;
-  border-radius: 999px;
-  font-family: "Outfit", sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .dropdown-toggle:hover {
@@ -665,6 +656,12 @@ p {
   aspect-ratio: 4 / 6;
 }
 
+@media (max-width: 768px) {
+  .project-info-img{
+    height: 120px;
+  }
+}
+
 h2 {
   color: #EEEE !important;
   font-family: Outfit, sans-serif;
@@ -786,6 +783,14 @@ h2 {
   cursor: pointer;
   transition: transform 0.3s ease !important;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #080909;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .nav-dropdown.text-dropdown .dropdown-toggle:hover {
@@ -809,6 +814,15 @@ h2 {
   transition: transform 0.2s ease;
   margin-top: 4.5rem;
   color: #481F90;
+}
+
+@media (max-width: 768px) {
+  .next-arrow {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    rotate: 90deg;
+    align-self: center;
+  }
 }
 
 /* Flatten button bottom corners when THIS dropdown is active */
@@ -1347,6 +1361,8 @@ h2 {
   .contato-buttons {
     justify-self: center;
     align-self: center;
+    align-items: center;
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(1, 18rem);
     gap: 20px;
@@ -1477,7 +1493,7 @@ h2 {
   }
 
   .testimonial {
-    font-size: 1.1rem;
+    font-size: 0.95rem !important;
     line-height: 1.3;
   }
 
@@ -1533,6 +1549,10 @@ h2 {
     padding: 0.5em 1.4em;
   }
 
+  .processo-p {
+    text-align: center;
+  }
+
   .nav-dropdown {
     font-size: 1rem !important;
     display: flex !important;
@@ -1561,7 +1581,6 @@ h2 {
     font-size: 1rem;
     padding: 0.5em 1.4em;
     margin: 0;
-    width: auto !important;
   }
 
   .dropdown-arrow {
