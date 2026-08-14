@@ -211,8 +211,13 @@ body{
 }
 
 .dropdown-arrow {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   transition: transform 0.3s ease;
+  display: flex;
+}
+
+.nav-dropdown.text-dropdown.active .side-arrow{
+  transform: rotate(180deg);
 }
 
 /* Menu: Hidden by default (display: none + absolute positioning) */
@@ -656,11 +661,7 @@ p {
   aspect-ratio: 4 / 6;
 }
 
-@media (max-width: 768px) {
-  .project-info-img{
-    height: 120px;
-  }
-}
+
 
 h2 {
   color: #EEEE !important;
@@ -806,6 +807,8 @@ h2 {
   font-weight: 550;
   color: rgb(125, 180, 228);
   font-size: 1.3rem !important;
+  display: flex;
+  flex-direction: row;
 }
 
 .next-arrow {
@@ -814,15 +817,6 @@ h2 {
   transition: transform 0.2s ease;
   margin-top: 4.5rem;
   color: #481F90;
-}
-
-@media (max-width: 768px) {
-  .next-arrow {
-    margin-top: 0;
-    margin-bottom: 2rem;
-    rotate: 90deg;
-    align-self: center;
-  }
 }
 
 /* Flatten button bottom corners when THIS dropdown is active */
@@ -854,11 +848,6 @@ h2 {
   max-height: 300px; /* Adjust if your text is very long */
   opacity: 1;
   padding: 1.5rem;
-}
-
-/* 3. Optional: Rotate or flip the arrow indicator when active */
-.nav-dropdown.text-dropdown.active .dropdown-arrow {
-  transform: rotate(90deg);
 }
 
 .dropdown-text {
@@ -1103,6 +1092,16 @@ h2 {
 /* 3. Mobile Specific Overrides */
 @media (max-width: 768px) {
 
+    .next-arrow {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    rotate: 90deg;
+    align-self: center;
+  }
+  .project-info-img{
+    height: 120px;
+  }
+
   .desktop-cheat {
     display: none;
   }
@@ -1279,6 +1278,14 @@ h2 {
     justify-self: center !important;
     font-size: 1rem;
   }
+
+  .nav-dropdown.text-dropdown.active .dropdown-menu {
+  max-height: 300px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  padding: 1.5rem !important;
+  margin: 0 !important;
+}
 
   /* Container layout for mobile stack */
 
@@ -1664,6 +1671,13 @@ h2 {
       visibility 0.3s ease;
   }
 
+  .nav-menu.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
   .nav-container {
     padding: 0 1rem; /* less than desktop */
     width: 100%;    /* ensure it doesn't stretch beyond viewport */
@@ -1677,147 +1691,26 @@ h2 {
     box-sizing: border-box !important;
   }
 
-  .nav-dropdown .dropdown-menu,
+.nav-dropdown .dropdown-menu,
   .nav-dropdown.text-dropdown .dropdown-menu {
     position: relative !important;
-    width: 100% !important;
+    top: 0 !important;
     left: 0 !important;
-    right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 1rem !important;
-    box-sizing: border-box !important;
+    width: 100% !important; /* Replaced broken 99rem width */
+    max-width: 100% !important;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    box-shadow: none;
+    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0.3s ease;
   }
 
-  .dropdown-text,
-  .processo-text {
+  .dropdown-text {
+    display: block !important;
     width: 100% !important;
-    box-sizing: border-box !important;
-    word-break: break-word !important; /* Prevents long text overflow */
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-
-    .desktop-cheat {
-    display: none;
-  }
-
-  .contact-section {
-    gap: 4rem;
-    padding: 4rem 3rem;
-  }
-
-  .contato-header {
-    font-size: 3rem;
-  }
-
-  #windowtablayout {
-    width: 48vw;
-  }
-  
-  .carousel-item {
-    height: 500px;
-  }
-
-  .carousel-window {
-    width: 520px;
-    height: 500px;
-  }
-
-  .banner1 {
-    gap: 2.5rem;
-    padding: 2rem;
-    margin-top: 0;
-  }
-  
-  .footer-row {
-    gap: 120px;
-    padding: 2.5rem;
-  }
-
-  .carinha {
-    width: 22rem;
-  }
-}
-
-@media (max-width: 460px) {
-
-  
-  .nav-container {
-    padding: 0 0.75rem; /* slightly tighter padding for small screens */
-  }
-
-  .nav-logo {
-    height: 22px;
-  }
-
-  .nav-toggle span {
-    width: 22px;
-    height: 3px;
-  }
-
-
-    .desktop-cheat {
-    display: none;
-  }
-
-  
-  .contato-header {
-    font-size: 2rem;
-  }
-
-  .contactbuttons {
-    font-size: 0.95rem;
-  }
-  
-  .testimonial {
-    font-size: 0.95rem;
-  }
-
-  .carousel-window,
-  .carousel-item {
-    height: 320px;
-  }
-
-  .carousel-btn {
-    width: 42px;
-    height: 42px;
-    font-size: 1.3rem;
-  }
-
-    .banner1 {
-    gap: 1.2rem;
-    padding: 1.2rem 0.75rem;
-  }
-
-  .button {
-    font-size: 0.95rem;
-    padding: 0.45em 1.2em;
-  }
-
-  .hero .button {
-    font-size: 1.5rem;
-    margin-top: 1.4rem;
-    margin: 0 auto; 
-    height: 3rem;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
-  }
-
-  .footer-head {
-    font-size: 1.3rem;
-  }
-
-  .footer-link {
-    font-size: 0.9rem;
-  }
-
-  .carinha {
-    width: 85%;
-    margin-top: 60px;
+    font-size: 0.95rem !important;
+    text-align: left !important;
+    color: #333333 !important;
   }
 }
