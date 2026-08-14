@@ -128,7 +128,7 @@ body.modal-open {
     justify-content: left;
     min-width: 100%;
     min-height: 100vh;
-    background-image: url("img/Projetos-BG.webp");
+    background-image: url("img/projetosbg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1257,7 +1257,7 @@ iframe.modal-video,
     justify-content: center;
     align-items: center;
     min-height: 45rem;
-    background-image: url("img/Projetos-BG-mobile.png");
+    background-image: url("img/projetosbg.png");
   }
 
   .hero-text {
