@@ -128,7 +128,7 @@ body.modal-open {
     justify-content: left;
     min-width: 100%;
     min-height: 100vh;
-    background-image: url("img/projetosbg.webp");
+    background-image: url("img/projetosbg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
