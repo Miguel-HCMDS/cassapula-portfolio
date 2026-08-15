@@ -1092,6 +1092,10 @@ h2 {
 /* 3. Mobile Specific Overrides */
 @media (max-width: 768px) {
 
+  #itsmeimage {
+    width: 90%;
+  }
+
     .next-arrow {
     margin-top: 0;
     margin-bottom: 2rem;

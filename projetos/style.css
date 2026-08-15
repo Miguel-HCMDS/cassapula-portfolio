@@ -1012,9 +1012,7 @@ iframe.modal-video {
     margin-top: 80px;
     order: 99;
   }
-}
-
-@media (max-width:768px) {
+  
     body {
         overflow-x: hidden;
         width: 100%
@@ -1406,3 +1404,4 @@ iframe.modal-video {
         margin-top: 60px
     }
 }
+
