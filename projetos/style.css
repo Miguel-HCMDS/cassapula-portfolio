@@ -828,7 +828,7 @@ iframe.modal-video {
 
 .modal.study-layout .modal-content {
   grid-template-columns: 1fr;
-  width: min(84%, 1200px);
+  width: 88%;
   height: 100%
 }
 
