@@ -147,6 +147,25 @@ body{
   box-sizing: border-box; /* ensures width includes padding */
 }
 
+.lang-btn {
+  padding: 0.25em 0.7em;
+  border: 1.5px solid #481f90;
+  border-radius: 999px;
+  color: #481f90;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  background-color: #481f90;
+  color: #fff !important;
+}
+
+/* Remove the default underline hover effect from nav-link for this specific button */
+.lang-btn::after {
+  display: none !important;
+}
+
 /*🡻🡻🡻 Hero 🡻🡻🡻*/
 
 /* Continuous rotation keyframe */
