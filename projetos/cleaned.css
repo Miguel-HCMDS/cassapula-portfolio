@@ -1,0 +1,391 @@
+@media (max-width:768px) {
+    body {
+        overflow-x: hidden;
+        width: 100%
+    }
+
+    p {
+        font-size: 1rem
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        width: 100%
+    }
+
+    .nav-logo {
+        height: 22px;
+        width: auto
+    }
+
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1001
+    }
+
+    .nav-toggle span {
+        width: 24px;
+        height: 3px;
+        background: #000;
+        border-radius: 2px
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        background: #f2f2f2;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity .3s ease, transform .3s ease, visibility .3s ease
+    }
+
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0)
+    }
+
+    .hero,
+    .hero .button,
+    .hero-text {
+        justify-content: center;
+        align-items: center
+    }
+
+    .hero {
+        min-height: 45rem;
+        background-image: url(img/projetosbg.png)
+    }
+
+    .hero .button,
+    .hero-text {
+        margin-left: 0;
+        display: flex
+    }
+
+    .hero-text {
+        width: 100%;
+        flex-direction: column;
+        text-align: center
+    }
+
+    #hero-img {
+        display: block;
+        max-width: 85%;
+        margin: 0 auto 1.4rem
+    }
+
+    .hero-sub {
+        font-size: 1.5rem !important;
+        width: 90%;
+        margin: 1rem 0;
+        text-align: center
+    }
+
+    .hero .button {
+        font-size: 1.5rem;
+        margin-top: 1.4rem;
+        height: 3rem
+    }
+
+    .projects-filters {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1.2rem;
+        margin: 2.5rem 0
+    }
+
+    .projects-filters input,
+    .projects-filters select {
+        width: 100%;
+        font-size: 1rem
+    }
+
+    .project-tags {
+        flex-wrap: wrap;
+        gap: .4rem
+    }
+
+    .tag {
+        font-size: .8rem;
+        padding: .25em .6em
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem
+    }
+
+    .show-more {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1.5rem auto 1.6rem;
+        padding: 0 1.6rem;
+        border-radius: 999px;
+        border: 0;
+        background: 0 0;
+        color: #a4a4a4;
+        font-size: 1.2rem;
+        font-weight: 500;
+        cursor: pointer;
+        width: 98%
+    }
+
+    .show-more hr {
+        border-top: 4px solid #a4a4a4
+    }
+
+    .modal-content {
+        grid-template-columns: 1fr
+    }
+
+    .modal-images {
+        height: 40vh
+    }
+
+    .carousel-image,
+    .modal-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain
+    }
+
+    .carousel-btn {
+        height: 40px;
+        width: 40px
+    }
+
+    .modal-right {
+        max-height: 60vh;
+        align-self: start
+    }
+
+    .modal-header h3 {
+        font-size: 1.3rem
+    }
+
+    .fechar,
+    .modal-actions {
+        display: flex;
+        flex-direction: row;
+        gap: .45rem;
+        font-size: .8rem;
+        justify-content: center;
+        align-items: center
+    }
+
+    .modal-btn {
+        width: 100%;
+        height: 100%;
+        font-size: .8rem;
+        margin: 0;
+        text-align: center
+    }
+
+    .close-modal {
+        position: fixed;
+        width: 38px;
+        height: 38px;
+        font-size: 1.6rem;
+        top: .5rem;
+        right: .5rem;
+        border-radius: 999px;
+        margin: .5rem;
+        background: #edfffd9c
+    }
+
+    .carousel-btn {
+        top: 60% !important
+    }
+
+    .modal-content {
+        width: 96%;
+        max-width: 96%;
+        margin: 0 auto;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        max-height: 100vh
+    }
+
+    .modal.single-image .modal-content {
+        width: 96%;
+        max-width: 96%;
+        margin: auto
+    }
+
+    .modal.single-image .modal-images {
+        width: 100%;
+        padding: 1rem 0;
+        background-color: #121212
+    }
+
+    .modal-right,
+    .modal.single-carousel .modal-right,
+    .modal.single-image .modal-right {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: auto !important;
+        max-height: unset !important;
+        margin: 0 auto !important;
+        overflow-y: visible !important
+    }
+
+    .modal-right {
+        padding: 1.4rem !important
+    }
+
+    .modal.single-carousel .modal-right,
+    .modal.single-image .modal-right {
+        text-align: center !important
+    }
+
+    .modal-right,
+    .modal.single-image .modal-right {
+        justify-content: center !important;
+        width: 100% !important
+    }
+
+    .modal.single-carousel .modal-right {
+        padding: 1.4rem !important
+    }
+
+    .modal-right,
+    .modal-right .modal-header {
+        text-align: center !important
+    }
+
+    .modal-right .modal-actions,
+    .modal-right .modal-header,
+    .modal.single-carousel .modal-right {
+        justify-content: center !important;
+        width: 100% !important
+    }
+
+    .modal.multiple-images .modal-content {
+        width: 96% !important;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr
+    }
+
+    .modal.multiple-images .modal-images {
+        order: 1;
+        height: 74vh;
+        width: 100%;
+        max-width: none;
+        overflow-y: scroll
+    }
+
+    .modal.multiple-images .modal-header {
+        margin: 0
+    }
+
+    .modal.multiple-images .modal-right {
+        order: 2;
+        max-height: 55vh;
+        margin-top: 0
+    }
+
+    .modal.single-image .modal-content {
+        align-content: start
+    }
+
+    .modal.single-image .modal-images {
+        height: auto;
+        max-height: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .modal.single-image .modal-img {
+        max-height: 45vh;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain
+    }
+
+    .modal.single-image .modal-right {
+        padding: 1.4rem !important
+    }
+
+    .modal.study-layout .modal-content {
+        max-height: 100%;
+        height: auto;
+        width: 96%;
+        flex-direction: column
+    }
+
+    .modal.study-layout .modal-images {
+        overflow-y: auto
+    }
+
+    .modal.study-layout .modal-images.scrolled {
+        height: 90% !important
+    }
+
+    .study-img {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        object-fit: contain
+    }
+
+    .study-text {
+        font-size: .8rem;
+        padding: 20px;
+        text-align: center
+    }
+
+    .study-link {
+        font-size: .52rem
+    }
+
+    .modal.study-layout .close-modal {
+        padding: 12px;
+        font-size: 1.3rem
+    }
+
+    .modal.study-layout .modal-actions {
+        gap: 20px
+    }
+
+    .modal.study-layout .modal-actions .modal-btn {
+        font-size: 1rem
+    }
+
+    .footer-head {
+        font-size: 1.3rem
+    }
+
+    .footer-link {
+        font-size: .9rem
+    }
+
+    .carinha {
+        width: 85%;
+        margin-top: 60px
+    }
+}

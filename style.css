@@ -277,7 +277,7 @@ body{
   height: 95vh;      /* shrink to content */
   width: 100vw;
   border-bottom: 2px solid #481F90;
-  background-image: url("img/Hero.png");
+  background-image: url("img/Hero.webp");
   background-size: cover;
   object-fit: cover;
   display: flex;

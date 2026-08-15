@@ -126,7 +126,7 @@ body.modal-open {
   justify-content: left;
   min-width: 100%;
   min-height: 100vh;
-  background-image: url(img/projetosbgdesktop.png);
+  background-image: url(img/projetosbgdesktop.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1086,7 +1086,7 @@ iframe.modal-video {
 
     .hero {
         min-height: 45rem;
-        background-image: url(img/projetosbg.png)
+        background-image: url(img/projetosbg.webp)
     }
 
     .hero .button,
