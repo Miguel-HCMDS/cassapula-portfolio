@@ -1383,7 +1383,6 @@ iframe.modal-video {
     .study-img {
         width: 100%;
         height: auto;
-        max-height: 50vh;
         object-fit: contain
     }
 
